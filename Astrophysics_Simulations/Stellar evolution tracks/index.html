@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stellar Evolution Tracks</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Stellar Evolution Tracks</h1>
+      <p class="lead">Animate a star moving across the Hertzsprung–Russell diagram</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="purpose">
+      <h2>Purpose</h2>
+      <p>
+        Visualize a star evolving across the H-R diagram from main sequence to red giant using simplified stellar models.
+        The animation demonstrates how stellar temperature decreases while luminosity increases during late evolution.
+      </p>
+    </section>
+
+    <section id="background">
+      <h2>Background</h2>
+      <p>
+        The Hertzsprung–Russell diagram plots stellar luminosity vs surface temperature. 
+        As stars evolve, their surface temperature and luminosity change. Main sequence stars 
+        maintain near-constant luminosity, while subgiants and giants increase in luminosity and cool in temperature.
+      </p>
+    </section>
+
+    <section id="methodology">
+      <h2>Methodology</h2>
+      <ol>
+        <li>Create arrays for temperature and luminosity representing simplified evolutionary stages.</li>
+        <li>Set up a Matplotlib figure with logarithmic axes and dark background.</li>
+        <li>Plot the static H-R track in light gray.</li>
+        <li>Add a moving star marker and trail line for animation.</li>
+        <li>Use FuncAnimation to animate the star along the track.</li>
+      </ol>
+    </section>
+
+    <section id="pseudocode">
+      <h2>Pseudocode</h2>
+      <pre><code>
+Define arrays for star temperatures and luminosities
+Create Matplotlib figure with log-log axes
+Plot the static H-R track
+Initialize star marker and trail
+For each frame i:
+    Update star position to temps[i], luminosities[i]
+    Update trail to include all previous positions
+Render animation with FuncAnimation
+Show figure
+      </code></pre>
+    </section>
+
+    <section id="python-code">
+      <h2>Python Simulation Code</h2>
+      <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+
+plt.style.use("dark_background")
+
+
+temps = np.concatenate([
+    np.linspace(10000, 5800, 50),  # main sequence cooling
+    np.linspace(5800, 4000, 50),   # subgiant
+    np.linspace(4000, 3500, 50)    # red giant
+])
+
+luminosities = np.concatenate([
+    np.linspace(1, 1, 50),         # main sequence (constant)
+    np.linspace(1, 100, 50),       # subgiant (rising)
+    np.linspace(100, 1000, 50)     # red giant (very bright)
+])
+
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.set_yscale('log')
+ax.set_xscale('log')
+ax.set_xlim(max(temps), min(temps))  # invert x-axis
+ax.set_ylim(min(luminosities)*0.8, max(luminosities)*1.2)
+ax.set_xlabel("Temperature (K)")
+ax.set_ylabel("Luminosity (L/L_sun)")
+ax.set_title("Stellar Evolution Track Animation")
+
+# Plot static track (light gray)
+ax.plot(temps, luminosities, color='gray', linestyle='--', alpha=0.5)
+
+
+# Animated star marker
+star_marker, = ax.plot([], [], 'o', color='yellow', markersize=12)
+
+# Trail for star
+trail, = ax.plot([], [], color='yellow', alpha=0.5)
+
+# Animation function
+def animate(i):
+    star_marker.set_data([temps[i]], [luminosities[i]])  # <-- wrap in list
+    trail.set_data(temps[:i+1], luminosities[:i+1])
+    return star_marker, trail
+
+ani = FuncAnimation(fig, animate, frames=len(temps), interval=100, blit=True)
+plt.show()
+
+      </code></pre>
+    </section>
+
+    <section id="explanation">
+      <h2>Explanation</h2>
+      <p>
+        - The temperature array represents the star cooling over time. <br>
+        - The luminosity array models the star brightening during subgiant and red giant phases. <br>
+        - A yellow marker represents the star, and a trail shows the previous positions. <br>
+        - The x-axis is inverted to follow H-R diagram convention (hot left). <br>
+        - Matplotlib FuncAnimation updates the star and trail at each frame.
+      </p>
+    </section>
+
+    <section id="expected-output">
+      <h2>Expected Output</h2>
+      <p>
+        The animation shows:
+        <ul>
+          <li>Star marker moving along the track</li>
+          <li>Trail marking the path</li>
+          <li>Log-log axes with dark space theme</li>
+        </ul>
+      </p>
+      <div class="animation-placeholder">
+        <p><video src="1.mp4" width="1000px" controls></video></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
