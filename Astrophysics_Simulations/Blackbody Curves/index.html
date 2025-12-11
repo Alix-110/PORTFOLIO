@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blackbody Curves & Stellar Temperature</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Blackbody Curves & Stellar Temperature</h1>
+      <p class="lead">Planck spectra, Wien peak shift, and approximate stellar color mapping</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="purpose">
+      <h2>Purpose</h2>
+      <p>
+        Demonstrate how blackbody radiation depends on temperature: plot Planck curves for several stellar temperatures,
+        mark the Wien peak for each curve, and show an approximate visual color for each temperature. This is a teaching
+        visualization for understanding how hotter stars appear bluer and cooler stars redder.
+      </p>
+    </section>
+
+    <section id="background">
+      <h2>Background</h2>
+      <p>
+        A perfect blackbody at temperature <em>T</em> emits radiation following Planck's law. Wien's displacement law
+        gives the wavelength of peak emission: <strong>λ<sub>max</sub> = b / T</strong> with b ≈ 2.897×10⁻³ m·K. Observationally,
+        stellar color and peak wavelength are tightly related to surface temperature.
+      </p>
+    </section>
+
+    <section id="methodology">
+      <h2>Methodology</h2>
+      <ol>
+        <li>Define physical constants (h, c, k) and wavelength grid (1 nm — 3000 nm).</li>
+        <li>Implement Planck function for spectral radiance vs wavelength.</li>
+        <li>Compute Wien peak for each temperature and mark it on the plot.</li>
+        <li>Map temperature to an approximate display color (simple lookup).</li>
+        <li>Render two panels: left = Planck curves, right = color swatches with temperature labels.</li>
+        <li>Use Matplotlib (Python) to generate the figure — the code is included below.</li>
+      </ol>
+    </section>
+
+    <section id="pseudocode">
+      <h2>Pseudocode</h2>
+      <pre><code>
+Define physical constants (h, c, k)
+Create wavelength array lam (1e-9 → 3e-6 m)
+Choose a list of temperatures to plot
+For each temperature T:
+    compute B(lambda, T) using Planck's law
+    compute Wien peak lambda_max = b / T
+    convert lambdas to nm for plotting
+Plot all Planck curves on same axes
+Mark Wien peak lines
+Create color swatches corresponding to each temperature
+Show figure
+      </code></pre>
+    </section>
+
+    <section id="python-code">
+      <h2>Python Simulation Code</h2>
+      <pre><code>
+# Simulation.py - Blackbody curves using ggplot style
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# -----------------------
+# CONSTANTS
+# -----------------------
+h = 6.626e-34      # Planck constant (J*s)
+c = 3e8            # Speed of light (m/s)
+k = 1.381e-23      # Boltzmann constant (J/K)
+
+# -----------------------
+# WAVELENGTH RANGE (1 nm → 3000 nm)
+# -----------------------
+lam = np.linspace(1e-9, 3e-6, 1000)
+
+# -----------------------
+# TEMPERATURES TO PLOT
+# -----------------------
+temperatures = [3000, 4500, 5800, 10000]
+
+# -----------------------
+# BLACKBODY FUNCTION
+# -----------------------
+def planck(lam, T):
+    return (2*h*c**2) / (lam**5 * (np.exp((h*c)/(lam*k*T)) - 1))
+
+# -----------------------
+# WIEN PEAK
+# -----------------------
+def wien_peak(T):
+    b = 2.897e-3  # Wien constant
+    return b / T
+
+# -----------------------
+# SIMPLE STAR COLOR APPROX
+# -----------------------
+def temp_to_rgb(T):
+    if T < 3500: return "#ff5b3a"   # red
+    if T < 5000: return "#ffb25b"   # orange
+    if T < 6500: return "#fff4d6"   # warm white
+    if T < 9000: return "#cce0ff"   # white-blue
+    return "#9bb7ff"                # deep blue
+
+# -----------------------
+# MATPLOTLIB STYLE (SAFE)
+# -----------------------
+plt.style.use("ggplot")
+
+# -----------------------
+# FIGURE LAYOUT
+# -----------------------
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+
+# -----------------------
+# BLACKBODY CURVES PANEL
+# -----------------------
+for T in temperatures:
+    B = planck(lam, T)
+    rgb = temp_to_rgb(T)
+
+    ax1.plot(lam * 1e9, B, color=rgb, label=f"{T} K")
+
+    peak = wien_peak(T)
+    ax1.axvline(peak * 1e9, color=rgb, linestyle="--", alpha=0.6)
+
+ax1.set_title("Blackbody Radiation Curves")
+ax1.set_xlabel("Wavelength (nm)")
+ax1.set_ylabel("Intensity")
+ax1.set_xlim(0, 3000)
+ax1.legend()
+
+# -----------------------
+# COLOR PANEL
+# -----------------------
+ax2.set_title("Star Colors by Temperature")
+
+for i, T in enumerate(temperatures):
+    rgb = temp_to_rgb(T)
+    ax2.barh(i, 1, color=rgb)
+    ax2.text(0.5, i, f"{T} K", ha="center", va="center", fontsize=12)
+
+ax2.set_xlim(0, 1)
+ax2.set_xticks([])
+ax2.set_yticks([])
+
+plt.tight_layout()
+plt.show()
+      </code></pre>
+    </section>
+
+    <section id="explanation">
+      <h2>Line-by-line Explanation</h2>
+      <pre><code>
+- Import numpy and matplotlib for numeric work and plotting.
+- Define constants: Planck's constant h, speed of light c, Boltzmann constant k.
+- Set wavelength grid `lam` from 1 nm to 3000 nm (meters).
+- Choose temperatures list to visualize (e.g., 3000 K -> cool red, 5800 K -> Sun).
+- planck(lam, T): computes spectral radiance B_λ using Planck's formula.
+- wien_peak(T): returns λ_max = b / T where b is Wien's displacement constant.
+- temp_to_rgb(T): maps temperature to a display color for visualization (approximate).
+- plt.style.use("ggplot"): safe, built-in Matplotlib style for bright plots.
+- For each temperature:
+    - Compute B = planck(lam, T)
+    - Plot B vs wavelength in nm (lam*1e9).
+    - Draw a dashed vertical line at Wien peak (converted to nm).
+- The right-hand panel paints horizontal bars with the approximate color for each temperature and labels them.
+- Finally call plt.show() to display the figure.
+      </code></pre>
+    </section>
+
+    <section id="expected-output">
+      <h2>Expected Output</h2>
+      <p>
+        When you run <code>Simulation.py</code>, Matplotlib will open a two-panel figure:
+        <ul>
+          <li>Left: Planck curves for each temperature across 0–3000 nm with vertical dashed markers at Wien peaks.</li>
+          <li>Right: color swatches approximating the visual color associated with each temperature, labeled with temperature values.</li>
+        </ul>
+      </p>
+      <div class="animation-placeholder">
+        <p>
+            
+            <code>blackbody_plot.png</code></p>
+            <img src="1.png" width="1000px">
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+/* Bright clean lab theme for Blackbody curves page */
+
+:root{
+  --bg: #f7f9fc;
+  --panel: #ffffff;
+  --accent: #003f7d;
+  --muted: #6b7b92;
+  --card-border: #d8e2f0;
+  --highlight: #ffd86b;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: #0b1b3f;
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:24px;
+}
+
+/* Header */
+.site-header{
+  background: linear-gradient(90deg, #eaf2ff 0%, #dfeefe 100%);
+  border-bottom: 1px solid var(--card-border);
+  padding:28px 0;
+  text-align:center;
+}
+.site-header h1{
+  margin:0;
+  color:var(--accent);
+  font-size:1.8rem;
+}
+.site-header .lead{
+  margin:6px 0 0;
+  color:var(--muted);
+}
+
+/* Sections */
+main{ padding: 18px 0; }
+h2{
+  color:var(--accent);
+  margin-top:22px;
+  padding-bottom:8px;
+  border-bottom:2px solid rgba(0,63,125,0.06);
+}
+
+/* code blocks */
+pre{
+  background: var(--panel);
+  border:1px solid var(--card-border);
+  padding:12px;
+  border-radius:8px;
+  color:#073055;
+  overflow:auto;
+  box-shadow: 0 6px 18px rgba(15,35,60,0.04);
+}
+
+/* animation placeholder / screenshot area */
+.animation-placeholder{
+  margin-top:14px;
+  background: linear-gradient(180deg, #eef6ff, #f7fbff);
+  border:1px dashed rgba(0,63,125,0.08);
+  padding:18px;
+  border-radius:8px;
+  color:var(--muted);
+  text-align:center;
+  
+}
+
+/* responsive */
+@media (max-width:920px){
+  .container{ padding:12px; }
+  .site-header h1{ font-size:1.4rem; }
+}
