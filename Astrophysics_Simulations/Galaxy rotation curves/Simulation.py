@@ -1,0 +1,58 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+plt.style.use("dark_background")
+
+
+r = np.linspace(0.1, 15, 300)  # kpc, radial distance
+G = 4.302e-6  # kpc/Msun (km/s)^2
+
+# Disk: exponential surface density
+Md = 6e10  # solar masses
+Rd = 3.0   # kpc
+V_disk = np.sqrt(G * Md * (1 - np.exp(-r/Rd)*(1+r/Rd))/r)
+
+# Halo: simple isothermal sphere
+Mh = 1e12
+Rh = 10.0
+V_halo = np.sqrt(G * Mh * r / (r**2 + Rh**2))
+
+# Total rotation curve
+V_total = np.sqrt(V_disk**2 + V_halo**2)
+
+# Observed "data" (simulate noisy)
+V_obs = V_total + np.random.normal(0, 10, len(r))
+
+fig, ax = plt.subplots(figsize=(10,6))
+ax.set_xlim(0, 15)
+ax.set_ylim(0, 300)
+ax.set_xlabel("Radius (kpc)")
+ax.set_ylabel("Velocity (km/s)")
+ax.set_title("Galaxy Rotation Curves - Disk + Halo + Observed")
+ax.grid(alpha=0.3)
+
+# Plot curves
+line_disk, = ax.plot(r, V_disk, 'c--', label="Disk Only")
+line_halo, = ax.plot(r, V_halo, 'm--', label="Halo Only")
+line_total, = ax.plot(r, V_total, 'y-', label="Total (Disk + Halo)")
+line_obs, = ax.plot(r, V_obs, 'w.', label="Observed")
+
+# Animated tracers
+tracer_disk, = ax.plot([], [], 'co', markersize=8)
+tracer_halo, = ax.plot([], [], 'mo', markersize=8)
+tracer_total, = ax.plot([], [], 'yo', markersize=8)
+tracer_obs, = ax.plot([], [], 'wo', markersize=6)
+
+ax.legend()
+
+def animate(i):
+    tracer_disk.set_data([r[i]], [V_disk[i]])
+    tracer_halo.set_data([r[i]], [V_halo[i]])
+    tracer_total.set_data([r[i]], [V_total[i]])
+    tracer_obs.set_data([r[i]], [V_obs[i]])
+    return tracer_disk, tracer_halo, tracer_total, tracer_obs
+
+
+ani = FuncAnimation(fig, animate, frames=len(r), interval=50, blit=True)
+plt.show()
