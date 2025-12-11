@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Journal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>🎥 Video Journal</h1>
+  <p class="subtitle">Record daily video entries — all stored securely on this device.</p>
+
+  <div class="recorder">
+    <video id="preview" autoplay muted></video>
+    <div class="controls">
+      <label for="cameraSelect">Camera:</label>
+      <select id="cameraSelect"></select>
+      <label for="maxLength">Max length (secs):</label>
+      <input type="number" id="maxLength" value="120" min="10" max="600">
+      <div>
+        <button id="startBtn">▶ Start</button>
+        <button id="stopBtn" disabled>⏹ Stop</button>
+      </div>
+      <div id="timer">00:00</div>
+    </div>
+  </div>
+
+  <h2>🗂 Your Entries</h2>
+  <p class="hint">MVP Build • Local-only • Use "Download" to back up entries</p>
+  <div id="entries"></div>
+
+  <!-- Popup modal for Save Log -->
+  <div id="saveModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Save Your Log</h3>
+      <input type="text" id="logTitle" placeholder="Enter a title for your log">
+      <button id="saveLogBtn">SAVE LOG</button>
+      <button id="cancelLogBtn" class="secondary">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Video Player iframe -->
+  <div id="playerWrapper" class="hidden">
+    <h3 id="playerTitle"></h3>
+    <iframe id="player" allow="autoplay"></iframe>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

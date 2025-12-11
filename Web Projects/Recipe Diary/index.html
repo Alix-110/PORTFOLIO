@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Dashboard with Steps</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="dashboard-container" id="dashboard">
+    <h1>Recipe Dashboard</h1>
+    <button id="addNewBtn" class="primary-btn">Add New Recipe</button>
+    <div class="recipes" id="recipes"></div>
+</div>
+
+<div class="form-page" id="formPage" style="display:none;">
+    <button id="backBtn" class="secondary-btn">← Back</button>
+    <h1 id="formTitle">Add Recipe</h1>
+    <div class="form-container">
+        <input type="text" id="recipeName" placeholder="Recipe Name">
+        <select id="recipeType">
+            <option value="dessert">Dessert</option>
+            <option value="main">Main Course</option>
+            <option value="drink">Drink</option>
+            <option value="snack">Snack</option>
+        </select>
+        <textarea id="recipeDesc" placeholder="Final Notes"></textarea>
+        
+        <div class="steps-container">
+            <h3>Steps</h3>
+            <div id="stepsList"></div>
+            <input type="text" id="stepInput" placeholder="Enter Step">
+            <button id="addStepBtn" class="primary-btn">Add Step</button>
+        </div>
+
+        <button id="saveRecipeBtn" class="primary-btn">Save Recipe</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

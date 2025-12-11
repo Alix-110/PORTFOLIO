@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glass Cropper - 600x600</title>
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="app-container">
+    <h1><i class="fa-solid fa-scissors"></i> Passport Size Photo Resizer</h1>
+
+    
+    <div class="card upload-card">
+        <label for="upload" class="upload-label"><i class="fa-solid fa-upload"></i> Choose Image</label>
+        <input type="file" id="upload" accept="image/*" hidden>
+    </div>
+
+   
+    <div class="cards-row">
+        <div class="card preview-card">
+            <h3><i class="fa-regular fa-image"></i> Original</h3>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="card preview-card cropped">
+            <h3><i class="fa-solid fa-crop-simple"></i> Cropped</h3>
+            <img id="croppedPreview" alt="Cropped Preview" />
+        </div>
+    </div>
+
+  
+    <button id="downloadBtn"><i class="fa-solid fa-download"></i> Download Cropped Image</button>
+
+
+
+</div>
+
+
+<div id="wasd-popup" class="popup-overlay">
+  <div class="popup-card">
+    <div class="popup-icon">
+      <i class="fa-solid fa-face-smile"></i>
+    </div>
+    <p>Use <b>“W”</b>, <b>“A”</b>, <b>“S”</b>, <b>“D”</b> to control the crop area</p>
+    <button id="popup-close">
+      <i class="fas fa-check"></i>
+    </button>
+  </div>
+</div>
+
+
+
+</body>
+<script src="script.js">
+
+
+</script>
+</html>

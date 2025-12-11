@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #0d0d2b;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Main grid for the table */
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 60px);
+    grid-auto-rows: 60px;
+    grid-gap: 3px;
+    justify-content: center;
+}
+
+/* Individual element boxes */
+.element {
+    background: #1e1e3f;
+    border-radius: 6px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.element:hover {
+    transform: scale(1.1);
+}
+
+.number {
+    font-size: 12px;
+    color: #ccc;
+}
+
+.symbol {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.name {
+    font-size: 10px;
+    color: #bbb;
+}
+
+/* Color coding by element type */
+.element.noble-gas { background: #ff8800; }
+.element.alkali { background: #ff4444; }
+.element.alkaline-earth { background: #ffaa55; }
+.element.transition { background: #ffaa00; }
+.element.metalloid { background: #55ff55; }
+.element.nonmetal { background: #44aaff; }
+.element.halogen { background: #ff55ff; }
+.element.lanthanide { background: #aa55ff; }
+.element.actinide { background: #ff55aa; }
+.element.metal { background: #55ffff; } /* for post-transition metals */
+
+/* Tooltip styling */
+#tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: none;
+    pointer-events: none;
+    font-size: 14px;
+    z-index: 100;
+}
+
+/* Separate row for lanthanides */
+.lanthanide-row {
+    grid-column: 4 / span 14; /* starts under group 3 */
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
+/* Separate row for actinides */
+.actinide-row {
+    grid-column: 4 / span 14;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}

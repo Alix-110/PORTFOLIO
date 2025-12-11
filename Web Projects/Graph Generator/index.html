@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Trig Line Graph</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="graph-container">
+    <h1>Animated Trigonometric Graph</h1>
+
+    <div class="controls">
+        <label>
+            Function:
+            <select id="funcSelect">
+                <option value="sin">sin</option>
+                <option value="cos">cos</option>
+                <option value="tan">tan</option>
+            </select>
+        </label>
+
+        <label>
+            Step (degrees):
+            <input type="number" id="stepInput" value="5" min="1" max="45">
+        </label>
+
+        <label>
+            Range (degrees):
+            <input type="number" id="rangeInput" value="360" min="30" max="720">
+        </label>
+
+        <button id="generateBtn">Generate Graph</button>
+    </div>
+
+    <div class="graph-wrapper">
+        <canvas id="graphCanvas"></canvas>
+        <div id="tooltip"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

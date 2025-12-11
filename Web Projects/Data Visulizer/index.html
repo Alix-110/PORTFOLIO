@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Data Visualizer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="visualizer">
+
+    <h1>Animated Data Visualizer</h1>
+
+    <div class="main-content">
+      <canvas id="chartCanvas" width="600" height="400"></canvas>
+
+      <!-- Sidebar for input -->
+      <div class="sidebar">
+        <h3>Add Data</h3>
+        <label>
+          Value:
+          <input type="number" id="dataValue" placeholder="Enter value">
+        </label>
+        <label>
+          Label (Year/Month):
+          <input type="text" id="dataLabel" placeholder="e.g., 2025 or Jan">
+        </label>
+        <button onclick="addData()">Add Data</button>
+        <button onclick="drawChart()">Draw Chart</button>
+        <button onclick="resetData()">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

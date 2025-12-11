@@ -1,0 +1,94 @@
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: #82f5bd;
+  background-size: cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  position:relative;
+  color:#fff;
+  transition: background 1s ease; /* smooth background transitions */
+}
+
+body::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  
+  transition: background 1s ease; /* smooth overlay transition */
+}
+
+.generator {
+  background: linear-gradient(135deg, #222, #111);
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 0 25px #00ffff;
+  text-align:center;
+  width:570px;
+  position:relative;
+  z-index:1;
+  transition: background 1s ease, box-shadow 0.5s ease;
+}
+
+.generator:hover {
+  box-shadow: 0 0 40px #00ffff, 0 0 60px #ff00ff;
+}
+
+h1 {
+  color:#00ffff;
+  text-shadow:1px 1px 10px #000;
+  margin-bottom:20px;
+}
+
+input {
+  width:90%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:none;
+  font-size:1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline:none;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+button {
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  font-size:1rem;
+  background:#00ffff;
+  color:#111;
+  cursor:pointer;
+  transition:0.5s;
+  margin-top:5px;
+}
+
+button:hover {
+  background:#ff00ff;
+  color:#fff;
+}
+
+#qrCode {
+  margin-top:20px;
+  transition: transform 0.5s ease;
+}
+
+#qrCode canvas {
+  transform: scale(0.5) rotate(-10deg); /* start small and slightly rotated */
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+#qrCode.show canvas {
+  transform: scale(1) rotate(0deg); /* final full size, straight */
+  opacity: 1;
+}

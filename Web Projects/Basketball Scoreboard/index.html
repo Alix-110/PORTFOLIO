@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Basketball Scoreboard</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="scoreboard">
+<div class="team">
+<input id="teamAName" value="Team A" />
+<img id="logoA" class="team-logo" src="" >
+<input type="file" id="uploadA" accept="image/*" onchange="loadLogo(event, 'A')">
+<h1 id="scoreA">0</h1>
+<button onclick="addScore('A',1)">+1</button>
+<button onclick="addScore('A',2)">+2</button>
+<button onclick="addScore('A',3)">+3</button>
+</div>
+
+
+<div class="team">
+<input id="teamBName" value="Team B" />
+<img id="logoB" class="team-logo" src="" >
+<input type="file" id="uploadB" accept="image/*" onchange="loadLogo(event, 'B')">
+
+
+
+<h1 id="scoreB">0</h1>
+<button onclick="addScore('B',1)">+1</button>
+<button onclick="addScore('B',2)">+2</button>
+<button onclick="addScore('B',3)">+3</button>
+</div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

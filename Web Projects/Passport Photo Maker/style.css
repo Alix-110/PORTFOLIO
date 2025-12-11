@@ -1,0 +1,203 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: linear-gradient(135deg, #0f0f1f, #1a1a3a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    overflow: hidden;
+    padding: 0;
+    color: white;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100%;
+    padding: 20px;
+}
+
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+}
+
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 15px;
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+
+.cards-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    flex: 1; 
+    overflow: hidden;
+}
+
+
+.preview-card {
+    width: 40%; 
+    min-width: 250px;
+}
+
+.preview-card.cropped {
+    width: 30%; 
+    min-width: 200px;
+}
+
+
+
+#canvas, #croppedPreview {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 60vh; 
+    border-radius: 12px;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    object-fit: contain;
+}
+
+
+.upload-card {
+    display: inline-block;
+}
+
+.upload-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.upload-label:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.05);
+}
+
+
+#downloadBtn {
+    margin-top: 10px;
+    padding: 12px 30px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(135deg, #ff4c4c, #ff1c1c);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#downloadBtn:hover {
+    background: linear-gradient(135deg, #ff1c1c, #e60000);
+    transform: scale(1.05);
+}
+
+
+input[type="file"] {
+    display: none;
+}
+
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+
+.popup-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 25px 30px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 350px;
+  color: white;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  transform: scale(0.8);
+  opacity: 0;
+  animation: popupZoom 0.4s ease forwards;
+}
+
+
+.popup-icon {
+  font-size: 70px;
+  color: #00c851;
+  margin-bottom: 15px;
+}
+
+
+#popup-close {
+  margin-top: 15px;
+  padding: 8px 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  background: #00c851;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#popup-close:hover {
+  background: #009e3e;
+}
+
+
+@keyframes popupZoom {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from { background: rgba(0,0,0,0); }
+  to { background: rgba(0,0,0,0.4); }
+}
+

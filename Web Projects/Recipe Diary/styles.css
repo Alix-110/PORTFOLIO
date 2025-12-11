@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fffde7; /* bright background */
+    color: #333;
+    min-height: 100vh;
+}
+
+.dashboard-container, .form-page {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff; /* bright card background */
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #ff5722;
+}
+
+.recipes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.recipe-card {
+    width: 200px;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: white;
+    font-weight: bold;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+}
+
+.recipe-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.recipe-card p {
+    font-size: 14px;
+}
+
+/* Bright colors */
+.dessert { background: #ff6ec7; }
+.main { background: #1e90ff; }
+.drink { background: #00ffcc; color: #333; }
+.snack { background: #ffea00; color: #333; }
+
+.primary-btn, .secondary-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+.primary-btn { background: #ff9800; color: white; }
+.primary-btn:hover { opacity: 0.85; }
+
+.secondary-btn { background: #b0bec5; color: #333; }
+.secondary-btn:hover { opacity: 0.85; }
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.form-container textarea { resize: vertical; height: 100px; }
+
+.steps-container { 
+    text-align: left; 
+}
+
+#stepsList { 
+    margin-bottom: 10px; 
+}
+
+.step-item {
+    background: #ffd54f;
+    color: #333;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}

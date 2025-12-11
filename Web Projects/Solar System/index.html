@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhanced Solar System</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="solar-system-container">
+    <div class="solar-system" id="solarSystem">
+        <div class="sun" title="Sun"></div>
+
+        <!-- Planets -->
+        <div class="orbit mercury"><div class="planet" id="mercury" data-name="Mercury" data-info="Distance: 58M km | Orbital Period: 88 days" data-radius="4"></div></div>
+        <div class="orbit venus"><div class="planet" id="venus" data-name="Venus" data-info="Distance: 108M km | Orbital Period: 225 days" data-radius="9"></div></div>
+        <div class="orbit earth"><div class="planet" id="earth" data-name="Earth" data-info="Distance: 150M km | Orbital Period: 365 days" data-radius="10"></div></div>
+        <div class="orbit mars"><div class="planet" id="mars" data-name="Mars" data-info="Distance: 228M km | Orbital Period: 687 days" data-radius="5"></div></div>
+        <div class="orbit jupiter"><div class="planet" id="jupiter" data-name="Jupiter" data-info="Distance: 778M km | Orbital Period: 12 years" data-radius="20"></div></div>
+        <div class="orbit saturn"><div class="planet" id="saturn" data-name="Saturn" data-info="Distance: 1.43B km | Orbital Period: 29 years" data-radius="17"></div></div>
+        <div class="orbit uranus"><div class="planet" id="uranus" data-name="Uranus" data-info="Distance: 2.87B km | Orbital Period: 84 years" data-radius="14"></div></div>
+        <div class="orbit neptune"><div class="planet" id="neptune" data-name="Neptune" data-info="Distance: 4.5B km | Orbital Period: 165 years" data-radius="13"></div></div>
+    </div>
+
+    <!-- Tooltip -->
+    <div id="tooltip"></div>
+
+    <!-- Controls -->
+    <div class="controls">
+    <label>Orbit Speed: <input type="range" id="speedSlider" min="0.5" max="5" step="0.1" value="1"></label>
+    <span id="yearCounter">Earth Years: 0</span>
+    <button id="playPauseBtn">Pause</button>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

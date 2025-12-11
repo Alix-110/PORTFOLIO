@@ -1,0 +1,81 @@
+body {
+    background: linear-gradient(135deg, #1d1f27, #131416);
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.controls {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.input-group, .slider-group {
+    margin: 10px;
+}
+
+.visuals {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.input-node, .neuron, .output-node {
+    width: 60px;
+    height: 60px;
+    background: #2c2f3b;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+/* Input nodes */
+#node1 { top: 20px; left: 20%; }
+#node2 { top: 120px; left: 15%; }
+#node3 { top: 220px; left: 20%; }
+
+/* Neuron */
+.neuron {
+    top: 130px;
+    left: 45%;
+    background: #40445a;
+}
+
+/* Output node */
+.output-node {
+    top: 130px;
+    left: 75%;
+    background: #2c2f3b;
+}
+
+/* Lines */
+.lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Glow animation */
+.active {
+    box-shadow: 0 0 20px 5px #00eaff;
+    background: #00bcd4 !important;
+}

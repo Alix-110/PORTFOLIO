@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Algorithm Visualizer (Colored + Info)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Simple Algorithm Visualizer</h1>
+
+    <!-- Buttons at the top (same as original layout) -->
+    <button class="bubble-btn" onclick="bubbleSort()">Bubble Sort</button>
+    <button class="selection-btn" onclick="selectionSort()">Selection Sort</button>
+    <button class="insertion-btn" onclick="insertionSort()">Insertion Sort</button>
+
+    <!-- Status text -->
+    <div id="status">Click a button to start sorting...</div>
+    <!-- Status text -->
+
+
+<!-- Timer display -->
+<div id="timer">Time: 0 ms</div>
+
+<!-- Container for bars -->
+<div id="container"></div>
+
+
+    <!-- Container for bars -->
+    <div id="container"></div>
+
+    <!-- Boxes for algorithm definitions at the bottom -->
+    <div id="definitions">
+        <div id="bubbleDef" class="def-box bubble-box">
+            <h3>Bubble Sort</h3>
+            <p>Repeatedly swaps adjacent elements if they are in the wrong order.</p>
+        </div>
+        <div id="selectionDef" class="def-box selection-box">
+            <h3>Selection Sort</h3>
+            <p>Repeatedly selects the minimum element and moves it to the sorted portion.</p>
+        </div>
+        <div id="insertionDef" class="def-box insertion-box">
+            <h3>Insertion Sort</h3>
+            <p>Builds sorted array one element at a time by inserting into correct position.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

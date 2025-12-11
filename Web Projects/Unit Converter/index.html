@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="converter">
+    <h1>Unit Converter</h1>
+
+    <div class="row">
+      <input type="number" id="inputValue" placeholder="Enter value">
+      <select id="unitFrom">
+        <optgroup label="Length">
+          <option value="m">Meters</option>
+          <option value="km">Kilometers</option>
+          <option value="cm">Centimeters</option>
+          <option value="mm">Millimeters</option>
+        </optgroup>
+        <optgroup label="Weight">
+          <option value="kg">Kilograms</option>
+          <option value="g">Grams</option>
+          <option value="lb">Pounds</option>
+          <option value="oz">Ounces</option>
+        </optgroup>
+        <optgroup label="Temperature">
+          <option value="c">Celsius</option>
+          <option value="f">Fahrenheit</option>
+          <option value="k">Kelvin</option>
+        </optgroup>
+      </select>
+      <span>→</span>
+      <select id="unitTo">
+        <optgroup label="Length">
+          <option value="m">Meters</option>
+          <option value="km">Kilometers</option>
+          <option value="cm">Centimeters</option>
+          <option value="mm">Millimeters</option>
+        </optgroup>
+        <optgroup label="Weight">
+          <option value="kg">Kilograms</option>
+          <option value="g">Grams</option>
+          <option value="lb">Pounds</option>
+          <option value="oz">Ounces</option>
+        </optgroup>
+        <optgroup label="Temperature">
+          <option value="c">Celsius</option>
+          <option value="f">Fahrenheit</option>
+          <option value="k">Kelvin</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <button onclick="convert()">Convert</button>
+
+    <h2 id="result"></h2>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
