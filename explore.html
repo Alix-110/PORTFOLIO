@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Portfolio | Muhammad Ali Imran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="explore.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Space Background -->
+    <div class="space-bg">
+        <div class="stars" id="stars"></div>
+        <div class="planet"></div>
+        <div class="planet small"></div>
+        <div class="nebula"></div>
+        <div class="comet"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+                <h1 class="logo-text">PORTFOLIO</h1>
+            </div>
+            <div class="tagline">
+                <span class="typed-text">Navigate My Universe</span>
+                <span class="cursor">&nbsp;</span>
+            </div>
+            <div class="back-home">
+                <a href="index.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Intro</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-content">
+                    <h2>Welcome to My <span class="highlight">Cosmic Journey</span></h2>
+                    <p>Explore different dimensions of my work, interests, and achievements. Each section represents a unique aspect of my journey through science, technology, and creativity.</p>
+                </div>
+                <div class="astronaut">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+            </section>
+
+            <!-- Navigation Grid -->
+            <div class="navigation-grid">
+                <!-- Left Column: Academics, Extracurriculars, Certificates -->
+                <div class="nav-column">
+                    <div class="nav-card main-card" data-section="academics">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="card-title">Academics</h3>
+                        <p class="card-description">Matriculation from St. Mary's Academy & FSC from APS Fort Road College</p>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <span class="stat-value">3.88</span>
+                                <span class="stat-label">Matric GPA</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">3.11</span>
+                                <span class="stat-label">FSC GPA</span>
+                            </div>
+                        </div>
+                        <div class="card-thumbnail">
+                            <div class="thumbnail-placeholder">
+                               
+                                <i class="fas fa-graduation-cap"></i>
+                                 
+                                <span>Click to view academic details</span>
+                            </div>
+                        </div>
+                        <div class="card-cta">
+                            <span>Explore <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="nav-card" data-section="extracurriculars">
+                        <div class="card-icon">
+                            <i class="fas fa-basketball-ball"></i>
+                        </div>
+                        <h3 class="card-title">Extracurriculars</h3>
+                        <p class="card-description">Basketball player and cooking enthusiast</p>
+                        <div class="card-thumbnail">
+                            <div class="thumbnail-placeholder">
+                                <i class="fas fa-basketball-ball"></i>
+                                <span>Basketball & Cooking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav-card" data-section="certificates">
+                        <div class="card-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="card-title">Skills</h3>
+                        <p class="card-description">Journey Timeline</p>
+                        <div class="card-thumbnail">
+                            <div class="thumbnail-placeholder">
+                                <i class="fas fa-clock"></i>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Cosmic Curosities, Web Projects, Astrophysics Simulations -->
+                <div class="nav-column">
+                    <div class="nav-card main-card" data-section="cosmic-curiosities">
+                        <div class="card-icon">
+                            <i class="fas fa-star-and-crescent"></i>
+                        </div>
+                        <h3 class="card-title">Cosmic Curiosities</h3>
+                        <p class="card-description">Astronomy research and cosmic explorations</p>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <span class="stat-value">8</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="stat">
+                               
+                            </div>
+                        </div>
+                        <div class="card-thumbnail">
+                            <div class="thumbnail-placeholder">
+                                <i class="fas fa-star"></i>
+                                <span>Cosmic research projects</span>
+                            </div>
+                        </div>
+                        <div class="card-cta">
+                            <span>Explore <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="nav-card" data-section="web-projects">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="card-title">Web Projects</h3>
+                        <p class="card-description">Web applications and interactive tools</p>
+                        <div class="card-thumbnail">
+                            <div class="thumbnail-placeholder">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>25 web projects</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav-card" data-section="astrophysics-simulations">
+                        <div class="card-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3 class="card-title">Astrophysics Simulations</h3>
+                        <p class="card-description">Cosmic simulations and physics models</p>
+                        <div class="card-thumbnail">
+                            <div class="thumbnail-placeholder">
+                                <i class="fas fa-satellite"></i>
+                                <span>21 simulations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <section class="stats-section">
+                <h2 class="section-title">Cosmic Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">54+</span>
+                            <span class="stat-label">Total Projects</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Categories</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">29</span>
+                            <span class="stat-label">Astrophysics</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Possibilities</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Muhammad Ali Imran</h3>
+                    <p>Student • Researcher • Cosmic Explorer</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Resume">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
+                </div>
+            </div>
+            <p class="copyright">© 2025 Cosmic Portfolio. All rights reserved. | Designed with <i class="fas fa-heart"></i> and <i class="fas fa-star"></i></p>
+        </footer>
+    </div>
+
+    <!-- Navigation Modal -->
+    <div class="navigation-modal" id="navigationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Section Title</h2>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription">Section description will appear here.</p>
+                
+                <!-- Project Thumbnails Container -->
+                <div class="projects-container" id="projectsContainer">
+                    <!-- Thumbnails will be dynamically added here -->
+                </div>
+                
+                <div class="modal-stats">
+                    <div class="modal-stat">
+                        <span class="modal-stat-value" id="modalStat1">0</span>
+                        <span class="modal-stat-label" id="modalStat1Label">Items</span>
+                    </div>
+                    <div class="modal-stat">
+                        <span class="modal-stat-value" id="modalStat2">0</span>
+                        <span class="modal-stat-label" id="modalStat2Label">Items</span>
+                    </div>
+                </div>
+                <div class="modal-cta">
+                    <button class="modal-button" id="exploreModalButton">
+                        <span>View All Projects</span>
+                        <i class="fas fa-rocket"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="explore.js"></script>
+</body>
+</html>
