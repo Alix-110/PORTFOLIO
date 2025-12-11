@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N-body Gravity Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>N-body Gravity Simulation: 3-Body Chaos</h1>
+    </header>
+
+    <main>
+        <section id="purpose">
+            <h2>Purpose of the Simulation</h2>
+            <p>
+                This simulation demonstrates the mutual gravitational interaction of three bodies. 
+                It visualizes chaotic motion and orbital paths in 3D space, illustrating how small 
+                changes in initial conditions can lead to complex trajectories, as in the three-body problem.
+            </p>
+        </section>
+
+        <section id="background">
+            <h2>Scientific Background</h2>
+            <p>
+                Newton's law of universal gravitation governs the forces:
+                <br><em>F = G * m1 * m2 / r²</em>
+                <br>
+                Each body experiences acceleration due to all other bodies:
+                <br><em>a_i = Σ(G * m_j * (r_j - r_i) / |r_j - r_i|³)</em>
+                <br>
+                The 3-body system is highly sensitive to initial conditions, producing chaotic motion.
+            </p>
+        </section>
+
+        <section id="methodology">
+            <h2>Methodology</h2>
+            <p>
+                <ol>
+                    <li>Assign each body a mass, initial position, and initial velocity.</li>
+                    <li>Compute accelerations from all other bodies using Newton’s law.</li>
+                    <li>Update velocities and positions using Euler integration at each time step.</li>
+                    <li>Use VPython spheres for 3D visualization with trails showing the paths.</li>
+                    <li>NumPy is used for vectorized and efficient calculations.</li>
+                </ol>
+            </p>
+        </section>
+
+        <section id="pseudocode">
+            <h2>Pseudocode</h2>
+            <pre><code>
+Initialize masses, positions, velocities
+Create 3D spheres for each body
+For each time step:
+    Compute acceleration for each body due to others
+    Update velocity: v += a * dt
+    Update position: r += v * dt
+    Update VPython sphere positions
+Render the animation
+            </code></pre>
+        </section>
+
+        <section id="python-code">
+            <h2>Python Simulation Code</h2>
+            <pre><code>
+import numpy as np
+from vpython import sphere, vector, rate, color
+
+G = 1.0
+dt = 0.01
+num_steps = 5000
+
+masses = np.array([1.0, 1.0, 1.0])
+positions = np.array([
+    [-1.0, 0.0, 0.0],
+    [1.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0]
+], dtype=float)
+velocities = np.array([
+    [0.0, 0.3, 0.0],
+    [0.0, -0.3, 0.0],
+    [-0.3, 0.0, 0.0]
+], dtype=float)
+
+colors_list = [color.red, color.green, color.blue]
+bodies = [sphere(pos=vector(*positions[i]), radius=0.1, color=colors_list[i], make_trail=True) for i in range(3)]
+
+def compute_accelerations(pos, masses):
+    n = len(pos)
+    acc = np.zeros_like(pos)
+    for i in range(n):
+        for j in range(n):
+            if i != j:
+                r_vec = pos[j] - pos[i]
+                r_mag = np.linalg.norm(r_vec)
+                acc[i] += G * masses[j] * r_vec / r_mag**3
+    return acc
+
+for step in range(num_steps):
+    rate(100)
+    a = compute_accelerations(positions, masses)
+    velocities += a * dt
+    positions += velocities * dt
+    for i in range(3):
+        bodies[i].pos = vector(*positions[i])
+            </code></pre>
+        </section>
+
+        <section id="explanation">
+            <h2>Code Explanation</h2>
+            <p>
+                The acceleration of each body is calculated from Newton's law of universal gravitation. 
+                Positions and velocities are updated using the Euler integration method. 
+                VPython spheres with trails visualize the motion in 3D space. 
+                Different colors identify each body, and trails illustrate chaotic paths.
+            </p>
+        </section>
+
+        <section id="expected-output">
+            <h2>Expected Output</h2>
+            <p>
+                Interactive 3D animation showing three bodies moving under mutual gravity with trails. 
+                Paths illustrate chaotic motion.
+                        </p>
+            
+            <div class="animation-placeholder">
+                <video src="Gravity.mp4" controls></video>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
