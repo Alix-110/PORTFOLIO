@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Golden Ratio • The Architecture of the Universe</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="starfield"></div>
+
+  <header class="nasa-header">
+    <div class="brand">
+      <div class="title">
+        <h1>Golden Ratio</h1>
+        <p class="subtitle">The Architecture of the Universe — proportions that whisper in nature, art & cosmos</p>
+      </div>
+    </div>
+    <nav class="top-nav">
+      <a href="#intro">Intro</a>
+      <a href="#math">Math</a>
+      <a href="#nature">Nature</a>
+      <a href="#cosmos">Cosmos</a>
+      <a href="#interactive">Interactive</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INTRO -->
+    <section id="intro" class="panel">
+      <div class="panel-left">
+        <h2>What is the Golden Ratio?</h2>
+        <p>The <strong>Golden Ratio</strong> (φ, phi) is the number <strong>1.6180339887…</strong> — a special irrational constant that appears in geometry, growth patterns, aesthetics, and many natural processes. When a line is divided into two parts so that the whole length to the longer part is the same ratio as the longer part to the shorter, that ratio is φ.</p>
+        <p>This page explores how φ emerges from the Fibonacci sequence, how golden rectangles and spirals are constructed, and where these patterns appear across scales — from sunflower heads to spiral galaxies.</p>
+        <div class="key-figures">
+          <div><span class="big">φ</span><small>= 1.61803...</small></div>
+          <div><span class="big">F</span><small>= Fibonacci numbers (0,1,1,2,3,5…)</small></div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <!-- main illustration: golden spiral (SVG) -->
+        <img class="hero" src="1.webp" alt="Golden spiral diagram — golden rectangle and spiral (type: diagram)" />
+      </div>
+    </section>
+
+    <!-- MATH -->
+    <section id="math" class="panel dark">
+      <h2>Mathematics: From Fibonacci to Φ</h2>
+      <p>The Fibonacci sequence (each term is the sum of the previous two) generates ratios that converge to φ:</p>
+      <div class="math-block">
+        <p><strong>Fibonacci:</strong> 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...</p>
+        <p><strong>Consecutive ratio:</strong> 1/1 = 1, 2/1 = 2, 3/2 = 1.5, 5/3 = 1.666..., 8/5 = 1.6, 13/8 = 1.625, ... → approaches φ</p>
+        <p><strong>Closed form (Binet's formula):</strong> φ = (1 + √5)/2</p>
+      </div>
+
+      <div class="card-grid">
+        <article class="info-card">
+          <img src="2.png" alt="Logarithmic spiral (diagram) — type: diagram"  width=""/>
+          <h3>Logarithmic Spirals</h3>
+          <p>Golden spirals are specific logarithmic spirals whose growth factor is φ per quarter turn. They appear when shapes grow but keep the same shape.</p>
+        </article>
+
+        <article class="info-card">
+          <img src="3.jpg" alt="Sunflower seeds closeup (type: photo — nature)" />
+          <h3>Packing Efficiency</h3>
+          <p>Seed heads use phyllotaxis patterns that maximize packing and sunlight exposure; Fibonacci numbers appear in counts of spirals.</p>
+        </article>
+
+        <article class="info-card">
+          <img src="4.jpg" alt="Spiral galaxy Hubble (type: photo — cosmos)" />
+          <h3>Galactic Spirals</h3>
+          <p>Spiral galaxies often follow logarithmic spiral arms; while not always perfect golden spirals, similar growth patterns are present across huge scales.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- NATURE -->
+    <section id="nature" class="panel">
+      <h2>Golden Ratio in Nature & Life</h2>
+      <p>Here are several well-documented natural occurrences and examples where golden structures or Fibonacci counts appear:</p>
+
+      <div class="cards-container">
+        <div class="large-card">
+          <img src="5.jpg" alt="Sunflower — seeds spiral (type: photo — nature)" />
+          <div class="card-body">
+            <h3>Sunflowers & Seeds</h3>
+            <p>Sunflower seed heads form interleaved spirals in two directions; the counts of spirals are consecutive Fibonacci numbers — an efficient packing pattern.</p>
+          </div>
+        </div>
+
+        <div class="large-card">
+          <img src="6.webp" alt="Nautilus shell cutaway (type: photo — nature / specimen)" />
+          <div class="card-body">
+            <h3>Nautilus & Shells</h3>
+            <p>Many shells create logarithmic spirals as they grow; the shape scales but the form remains similar — a hallmark of growth driven by constant proportions.</p>
+          </div>
+        </div>
+
+        <div class="large-card">
+          <img src="7.jpg" alt="Pinecone closeup (type: photo — nature)" />
+          <div class="card-body">
+            <h3>Pinecones & Pineapples</h3>
+            <p>Spiral counts on pinecones and pineapples typically correspond to Fibonacci numbers when counted in different directions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COSMOS -->
+    <section id="cosmos" class="panel dark">
+      <h2>Golden Ratio at Cosmic Scales</h2>
+      <p>From planetary rings to galaxy arms, proportion and self-similar growth patterns echo at astronomical scales. Scientists study these patterns to understand dynamics and formation processes.</p>
+
+      <div class="card-grid">
+        <article class="info-card">
+          <img src="8.jpg" alt="Planetary rings / orbital (type: photo — cosmos)" id="ring" />
+          <h3>Orbits & Resonances</h3>
+          <p>Orbital resonances and density waves produce large-scale patterns; proportional relationships often simplify modeling.</p>
+        </article>
+
+        <article class="info-card">
+          <img src="9.avif" alt="Fractal / swirl (type: concept image)" />
+          <h3>Fractals & Self-Similarity</h3>
+          <p>Fractal-like structures show self-similarity across scales — similar ideas underlie golden/ logarithmic behavior.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE -->
+    <section id="interactive" class="panel">
+      <h2>Interactive Demos</h2>
+
+      <div class="interactive-grid">
+        <!-- LEFT: golden spiral canvas -->
+        <div class="interactive-card">
+          <h3>1) Golden Rectangle / Spiral Animator</h3>
+          <p>Set iterations (number of rectangles / spiral segments), speed, and start. Watch the golden rectangles stack and the spiral draw smoothly.</p>
+
+          <div class="controls">
+            <label>Iterations: <input id="iterations" type="number" min="1" max="18" value="8"></label>
+            <label>Scale factor: <input id="scaleFactor" type="range" min="4" max="28" value="12"></label>
+            <label>Speed: <input id="speed" type="range" min="1" max="20" value="8"></label>
+            <button id="startSpiral">Start Animation</button>
+            <button id="stopSpiral">Stop</button>
+            <button id="resetSpiral">Reset</button>
+          </div>
+
+          <canvas id="spiralCanvas" width="560" height="560" aria-label="Golden spiral canvas"></canvas>
+          <p class="hint">Tip: increase iterations to see more rectangles; reduce scale if parts go off-screen.</p>
+        </div>
+
+        <!-- RIGHT: Fibonacci -> phi convergence -->
+        <div class="interactive-card">
+          <h3>2) Fibonacci → φ Convergence</h3>
+          <p>Generate Fibonacci numbers and watch the ratio of consecutive terms converge to φ. You can generate up to 25 terms.</p>
+
+          <div class="controls">
+            <label>Terms: <input id="fibTerms" type="number" min="3" max="25" value="12"></label>
+            <label>Animate: <input id="animateConverge" type="checkbox" checked></label>
+            <button id="startConverge">Run</button>
+          </div>
+
+          <div id="convergeOutput" class="converge-output"></div>
+          <canvas id="convergeChart" width="520" height="160" aria-label="Line chart of consecutive ratios"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTES -->
+    <section class="panel">
+      <h2>Famous Sayings & Context</h2>
+      <blockquote>“The golden ratio has been called the most irrational of all numbers because of the deep ways it connects proportion, aesthetics and growth.”</blockquote>
+      <blockquote>“Nature's designs are not always perfect — but many show striking statistical prevalence of Fibonacci counts and logarithmic spirals.”</blockquote>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="panel dark small">
+      <h2>Sources & Further Reading</h2>
+      <ul>
+        <li>Wolfram MathWorld — Golden ratio</li>
+        <li>Scientific articles on phyllotaxis and spiral phyllotaxis</li>
+        <li>NASA Hubble image gallery (for galaxy images)</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="nasa-footer">
+    <h3><b>2025 © Cosmic Curiosities • Muhammad Ali Imran </b></h3>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

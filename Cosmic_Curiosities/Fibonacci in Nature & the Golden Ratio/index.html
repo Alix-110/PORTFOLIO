@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fibonacci Everywhere • Cosmic Curiosity</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>Fibonacci & The Golden Ratio</h1>
+  <p>Explore how nature, art, and the cosmos follow a hidden pattern—the Fibonacci sequence and the Golden Ratio.</p>
+</header>
+
+<!-- INTRO -->
+<section class="intro">
+  <h2>What is the Fibonacci Sequence?</h2>
+  <p>The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones: <strong>0, 1, 1, 2, 3, 5, 8, 13, 21...</strong></p>
+  <p>It’s closely related to the <strong>Golden Ratio</strong> (≈ 1.618), which describes proportional harmony in nature, architecture, and art.</p>
+  <!-- Image: Fibonacci spiral diagram -->
+  <img src="2.png" alt="Fibonacci spiral diagram" class="main-img">
+</section>
+
+<!-- FIBONACCI IN NATURE -->
+<section>
+  <h2>Fibonacci in Nature</h2>
+  <ul>
+    <li><strong>Sunflowers:</strong> The seeds grow in spirals that follow Fibonacci numbers to maximize packing efficiency.</li>
+    <li><strong>Pinecones:</strong> Spirals on pinecones follow Fibonacci numbers.</li>
+    <li><strong>Shells & Nautilus:</strong> Shells often form logarithmic spirals approximating the Golden Ratio.</li>
+    <li><strong>Leaves & Petals:</strong> Phyllotaxis (arrangement of leaves) follows Fibonacci numbers for optimal sunlight exposure.</li>
+  </ul>
+  <!-- Image: Sunflower seeds in spiral -->
+  <img src="3.jpg" alt="Sunflower spiral seeds" class="main-img">
+</section>
+
+<!-- FUN FACT CARDS -->
+<section class="cards-section">
+  <h2>Fun & Mind-Blowing Facts About Fibonacci</h2>
+  <div class="cards-container">
+    <div class="card">
+      <!-- Image: Pinecone -->
+      <img src="4.jpg" alt="Pinecone spirals">
+      <h3>Pinecone Spirals</h3>
+      <p>Count the spirals on a pinecone—most follow Fibonacci numbers.</p>
+    </div>
+    <div class="card">
+      <!-- Image: Nautilus shell -->
+      <img src="5.jpg" alt="Nautilus shell spiral">
+      <h3>Nautilus Shell</h3>
+      <p>The logarithmic spiral of shells approximates the Golden Ratio for optimal growth.</p>
+    </div>
+    <div class="card">
+      <!-- Image: Flower petals -->
+      <img src="6.jpg" alt="Flower petals arrangement">
+      <h3>Petals</h3>
+      <p>Many flowers have petals in Fibonacci numbers (3, 5, 8, 13, 21).</p>
+    </div>
+    <div class="card">
+      <!-- Image: Pineapple -->
+      <img src="7.jpg" alt="Pineapple spiral pattern">
+      <h3>Pineapple Spirals</h3>
+      <p>The scales of a pineapple follow multiple Fibonacci spirals in different directions.</p>
+    </div>
+    <div class="card">
+      <!-- Image: Galaxy spiral -->
+      <img src="8.webp" alt="Spiral galaxy">
+      <h3>Galaxies</h3>
+      <p>Spiral galaxies often form patterns related to the Fibonacci spiral.</p>
+    </div>
+    <div class="card">
+      <!-- Image: Fingerprints -->
+      <img src="9.jpg" alt="Fingerprint spirals">
+      <h3>Fingerprints</h3>
+      <p>The whorls in fingerprints sometimes follow Fibonacci or Golden Ratio patterns.</p>
+    </div>
+    <div class="card">
+      <!-- Image: Art / Golden ratio overlay -->
+      <img src="10.jpeg" alt="Art and golden ratio overlay">
+      <h3>Art & Architecture</h3>
+      <p>Many famous artworks and buildings use proportions approximating the Golden Ratio.</p>
+    </div>
+    <div class="card">
+      <!-- Image: Human body proportions -->
+      <img src="11.webp" alt="Human body golden ratio">
+      <h3>Human Body</h3>
+      <p>Some body proportions approximate the Golden Ratio, like the ratio of forearm to hand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FIBONACCI IN COSMOS -->
+<section class="section-dark">
+  <h2>Fibonacci in the Cosmos</h2>
+  <p>Even space isn’t free from Fibonacci patterns:</p>
+  <ul>
+    <li>Spiral galaxies often approximate logarithmic spirals based on Fibonacci numbers.</li>
+    <li>Planetary ring patterns sometimes show distribution ratios close to Fibonacci numbers.</li>
+    <li>Simulations of cosmic structures reveal fractal-like patterns that connect to Fibonacci sequences.</li>
+  </ul>
+  <!-- Image: Spiral galaxy overlay -->
+  <img src="8.webp" alt="Spiral galaxy" class="main-img">
+</section>
+
+<!-- INTERACTIVE FIBONACCI GENERATOR -->
+<section class="interactive">
+  <h2>Fibonacci Sequence Generator</h2>
+  <p>Enter a number n to generate the first n Fibonacci numbers:</p>
+  <input type="number" id="fib-input" placeholder="e.g., 10" min="1">
+  <button id="fib-btn">Generate</button>
+  <p id="fib-result"></p>
+</section>
+
+<!-- INTERACTIVE FIBONACCI ANIMATION -->
+<!-- INTERACTIVE FIBONACCI ANIMATION -->
+<section class="interactive">
+  <h2>Fibonacci Spiral Animation</h2>
+  <p>Enter the number of squares for the spiral, choose animation speed, and click "Start Animation":</p>
+  <input type="number" id="fib-animation-input" placeholder="e.g., 10" min="1" max="20">
+  <label for="speed-slider">Animation Speed:</label>
+  <input type="range" id="speed-slider" min="1" max="10" value="5">
+  <button id="fib-animation-btn">Start Animation</button>
+  <canvas id="fib-canvas" width="600" height="600" style="background: rgba(0,0,0,0.3); display:block; margin: 1rem auto; border-radius:12px;"></canvas>
+</section>
+
+
+
+<!-- QUOTES -->
+<section>
+  <h2>Famous Quotes About Fibonacci</h2>
+  <blockquote>"The Fibonacci numbers are nature’s numbering system." — Steven Strogatz</blockquote>
+  <blockquote>"Everything around you is numbers, and Fibonacci numbers are the patterns of life." — Anonymous</blockquote>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Cosmic Curiosities • Muhammad Ali Imran</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

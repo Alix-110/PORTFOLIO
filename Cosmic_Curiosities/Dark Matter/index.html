@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DARK MATTER • The Invisible Cosmos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="space-bg">
+    <div class="stars" aria-hidden="true"></div>
+
+    <!-- HEADER -->
+    <header class="header fade-in" role="banner">
+      <div class="brand" role="img" aria-label="space brand">
+        
+        <div>
+          <div class="page-title">DARK MATTER</div>
+          <div class="subtitle">Exploring the Invisible Skeleton of the Cosmos</div>
+        </div>
+      </div>
+
+      <nav class="top-nav" role="navigation" aria-label="Main">
+        <a href="#s1">Invisible Skeleton</a>
+        <a href="#s2">Hidden 85%</a>
+        <a href="#s3">Silent Architect</a>
+        <a href="#s4">Universe's Shadow</a>
+        <a href="#s5">Hidden Framework</a>
+        <a href="#interactive">Interactive</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- SECTION 1 -->
+      <section id="s1" class="section fade-in" aria-labelledby="s1h">
+        <h2 id="s1h" class="heading">Dark Matter: The Invisible Cosmic Skeleton</h2>
+        <p class="lead">Dark matter is the name we give to unseen mass that shapes how galaxies rotate, how clusters bind, and how the large-scale cosmic web forms. It doesn't emit or absorb light, but its gravity sculpts the visible universe.</p>
+
+        <div class="panel">
+          <p class="small">Observations show: galaxies and clusters behave as if a large amount of unseen mass exists. This unseen mass is called <strong>dark matter</strong>.</p>
+
+          <div class="card-row">
+            <article class="nasa-card">
+              <img src="2.jpg" alt="Galaxy cluster — photo">
+              <div class="card-body">
+                <h3>Galaxy Clusters</h3>
+                <p>Clusters require more mass than visible matter provides — dark matter supplies the missing gravity.</p>
+              </div>
+            </article>
+
+            <article class="nasa-card">
+              <img src="3.jpeg" alt="Spiral galaxy — photo">
+              <div class="card-body">
+                <h3>Rotation Curves</h3>
+                <p>Star speeds far from centers stay high, implying extra invisible mass in halos.</p>
+              </div>
+            </article>
+
+            <article class="nasa-card">
+              <img src="4.jpg" alt="Gravitational lensing — photo">
+              <div class="card-body">
+                <h3>Gravitational Lensing</h3>
+                <p>Light bends more than visible mass can explain; lensing maps reveal dark matter distributions.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="s2" class="section fade-in" aria-labelledby="s2h">
+        <h2 id="s2h" class="heading">What Is Dark Matter? The Hidden 85% of the Universe</h2>
+        <p class="lead">Modern cosmology indicates that roughly 85% of the matter in the universe is dark. Ordinary atoms make up only ~15% of matter. The rest is invisible to telescopes.</p>
+
+        <div class="panel">
+          <p class="small"><strong>Evidence:</strong> rotation curves, galaxy motions in clusters, gravitational lensing, the cosmic microwave background (CMB), and structure formation all point to non-luminous mass.</p>
+
+          <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:12px">
+            <div style="flex:1;min-width:300px">
+              <img src="2.jpg" alt="Cosmic web simulation — photo" style="width:100%;border-radius:8px">
+            </div>
+            <div style="flex:1;min-width:300px">
+              <p class="small">Scientists infer dark matter from gravitational effects. It is essential in models that form galaxies quickly enough to match observations.</p>
+              <ul class="small">
+                <li><strong>CMB:</strong> tiny fluctuations encode matter content.</li>
+                <li><strong>Large-scale structure:</strong> simulations with dark matter reproduce the cosmic web.</li>
+                <li><strong>Direct searches:</strong> experiments hunt for WIMPs, axions, and other candidates.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="s3" class="section fade-in" aria-labelledby="s3h">
+        <h2 id="s3h" class="heading">Dark Matter: The Silent Architect of Galaxies</h2>
+        <p class="lead">Dark matter forms halos around galaxies. Those halos determine rotation speeds and disk stability.</p>
+
+        <div class="panel">
+          <p class="small">Interactive demo: slide to add dark halo mass and watch the rotation curve flatten. The demo is simplified and pedagogical.</p>
+
+          <div class="canvas-wrap" style="margin-top:12px">
+            <div class="canvas-panel">
+              <canvas id="rotationCanvas" width="640" height="360" aria-label="Rotation curve visualization"></canvas>
+              <div class="controls">
+                <label class="small">Halo mass: <span id="haloMassLabel">1.0</span></label>
+                <input id="haloMass" type="range" min="0" max="5" step="0.1" value="1">
+                <button id="runRotation" class="btn">Update</button>
+                <span style="flex:1"></span>
+                <span class="small">Blue = visible only, Yellow = with dark halo</span>
+              </div>
+            </div>
+
+            <div class="canvas-panel">
+              <canvas id="galaxyCanvas" width="560" height="360" aria-label="Rotating galaxy visualization"></canvas>
+              <p class="small" style="margin-top:8px">Rotating galaxy (visual). Halo shown as faint glow. Illustrative, not an N-body sim.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="s4" class="section fade-in" aria-labelledby="s4h">
+        <h2 id="s4h" class="heading">The Universe’s Shadow: Understanding Dark Matter</h2>
+        <p class="lead">Multiple independent observations converge on the dark matter picture. The 'shadow' of dark matter appears in many datasets.</p>
+
+        <div class="panel">
+          <div class="card-row">
+            <article class="nasa-card">
+              <img src="8.jpg" alt="CMB map — photo">
+              <div class="card-body">
+                <h3>Cosmic Microwave Background</h3>
+                <p>Small CMB fluctuations encode the Universe’s matter content; analysis requires dark matter to match data.</p>
+              </div>
+            </article>
+
+            <article class="nasa-card">
+              <img src="9.webp" alt="Lensing arcs — photo">
+              <div class="card-body">
+                <h3>Lensing Maps</h3>
+                <p>By mapping distortions we reveal mass maps that highlight dark halos even where there is no light.</p>
+              </div>
+            </article>
+
+            <article class="nasa-card">
+              <img src="10.jpg" alt="Simulation — photo">
+              <div class="card-body">
+                <h3>Structure Formation</h3>
+                <p>Simulations that include dark matter reproduce the cosmic web and galaxy clustering we observe.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="s5" class="section fade-in" aria-labelledby="s5h">
+        <h2 id="s5h" class="heading">Dark Matter — The Hidden Framework Holding Everything Together</h2>
+        <p class="lead">On the largest scales dark matter forms filaments and nodes — the cosmic web. Galaxies form inside halos sitting on these filaments.</p>
+
+        <div class="panel">
+          <p class="small">Visual web demo: start the web to see filaments lighting up as particles trace structure growth.</p>
+          <div class="canvas-wrap" style="margin-top:12px">
+            <div class="canvas-panel">
+              <canvas id="webCanvas" width="980" height="360" aria-label="Cosmic web animation"></canvas>
+              <div class="controls" style="margin-top:8px">
+                <button id="startWeb" class="btn">Start Web</button>
+                <button id="stopWeb" class="btn">Stop</button>
+                <label class="small">Density: <input type="range" id="webDensity" min="0.2" max="2" step="0.1" value="1"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE / RESOURCES -->
+      <section id="interactive" class="section fade-in" aria-labelledby="si">
+        <h2 id="si" class="heading">Interactive Experiments & Further Reading</h2>
+
+        <div class="panel">
+          <p class="small">Try the halo mass slider (Section 3) to see rotation curves change. Use web density to visualize filaments. These demos are pedagogical, not full cosmological simulations.</p>
+
+          <h3 class="heading">Resources</h3>
+          <ul class="small">
+            <li>NASA — Dark Matter overview and Hubble images</li>
+            <li>Planck collaboration — CMB constraints</li>
+            <li>Simulations — Millennium, Illustris, EAGLE</li>
+            <li>Direct detection experiments — LUX-ZEPLIN, XENON, ADMX</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer fade-in">
+      <div class="small">Cosmic curiosities • © 2025 • Muhammad Ali Imran</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

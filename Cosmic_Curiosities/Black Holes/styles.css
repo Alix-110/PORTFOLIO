@@ -1,0 +1,116 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: url("1.webp") no-repeat center center fixed;
+  background-size: cover;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+
+/* STARS BACKGROUND */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: url('images/deep_space_bg.jpg') repeat;
+  animation: moveStars 200s linear infinite;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+@keyframes moveStars {
+  0% {transform: translate(0,0);}
+  100% {transform: translate(-50%, -50%);}
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-overlay {
+  text-align: center;
+}
+.hero h1 {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 700;
+}
+.hero p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #ffffff;
+  background-color: #444;
+}
+
+/* GLASS CARD SECTIONS */
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 80px 10%;
+}
+.section.reverse {
+  flex-direction: row-reverse;
+}
+.glass-card {
+  background: rgba(20,20,35,0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+.glass-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.glass-card h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+.glass-card p, .glass-card ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.glass-card ul li {
+  margin-bottom: 10px;
+}
+
+/* SIMULATION */
+.simulation-card canvas {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  background: radial-gradient(circle at center, #000000, #0b0b1a);
+  margin-top: 20px;
+}
+
+/* BUTTON */
+button {
+  padding: 12px 25px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+button:hover {
+  background-color: #444;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .section { flex-direction: column; }
+  .section.reverse { flex-direction: column; }
+}

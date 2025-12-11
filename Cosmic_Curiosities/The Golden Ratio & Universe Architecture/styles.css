@@ -1,0 +1,113 @@
+/* NASA-inspired visual language
+   - deep navy background with starfield
+   - neon blue highlights, thin modern font
+   - clean cards, subtle glass panels
+*/
+
+:root{
+  --bg-1: #030417;
+  --panel-bg: rgba(6,15,30,0.66);
+  --panel-bg-2: rgba(3,9,20,0.8);
+  --accent: #229bd3;
+  --accent-2: #00b3ff;
+  --muted: #ffffff;
+  --glow: 0 0 18px rgba(63,193,255,0.12);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg-1);color:#e6f7ff}
+#starfield{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse at 30% 10%, rgba(255,255,255,0.03) 0 2%, transparent 2%),
+    radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.02) 0 2%, transparent 2%),
+    url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=80') center/cover;
+  filter:blur(0.6px) saturate(1.1) contrast(1.05);
+  opacity:0.85;
+}
+
+.nasa-header{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid rgba(255,255,255,0.03);
+  background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.12));
+  backdrop-filter: blur(6px);
+}
+
+.brand{display:flex;align-items:center;gap:16px}
+.brand img{width:48px;filter:grayscale(1) brightness(1.4) contrast(1);opacity:0.95}
+.title h1{margin:0;font-weight:700;font-size:1.45rem;letter-spacing:0.6px}
+.title .subtitle{margin:2px 0 0;color:var(--muted);font-size:0.9rem}
+
+/* nav */
+.top-nav{display:flex;gap:14px}
+.top-nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;font-weight:600;font-size:0.9rem}
+.top-nav a:hover{background:rgba(63,193,255,0.07);color:var(--accent);box-shadow:var(--glow)}
+
+/* main */
+main{position:relative;z-index:2;padding:28px 40px}
+
+/* panels */
+.panel{margin:22px auto;padding:20px;border-radius:12px;background:var(--panel-bg);box-shadow:0 6px 30px rgba(1,8,20,0.6);border:1px solid rgba(255,255,255,0.03)}
+.panel.dark{background:var(--panel-bg-2)}
+.panel.small{max-width:1000px}
+.panel h2{margin:0 0 12px;color:#dff6ff}
+
+/* two-column intro */
+.panel#intro{display:grid;grid-template-columns:1fr 420px;gap:22px;align-items:center}
+.panel-left p{color:rgba(230,247,255,0.92);line-height:1.5}
+.key-figures{display:flex;gap:20px;margin-top:12px}
+.key-figures .big{font-size:2rem;font-weight:700;color:var(--accent);display:block}
+.hero{width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+
+/* card grid */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:14px}
+.info-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.info-card img{width:400px;height:340px;object-fit:cover;border-radius:8px}
+.info-card h3{margin:10px 0 6px;color:var(--accent)}
+.info-card p{margin:0;color:var(--muted)}
+
+/* large cards / nature */
+.cards-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:12px}
+.large-card{display:flex;flex-direction:column;background:rgba(255,255,255,0.02);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+.large-card img{width:400px;height:350px;object-fit:cover}
+.card-body{padding:12px}
+.card-body h3{margin:0 0 6px;color:var(--accent)}
+.card-body p{color:var(--muted);margin:0}
+
+/* interactive area */
+#interactive .interactive-grid{display:grid;grid-template-columns:1fr 520px;gap:20px;align-items:start}
+.interactive-card{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.controls label{color:var(--muted);font-size:0.9rem}
+.controls input[type="number"]{width:72px;padding:6px;border-radius:6px;border:none;background:rgba(255,255,255,0.03);color:#e6f7ff;padding-left:8px}
+.controls input[type="range"]{width:140px}
+.controls button{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#012; padding:8px 10px;border-radius:8px;font-weight:700;cursor:pointer;box-shadow:var(--glow)}
+.controls button:hover{filter:brightness(1.05)}
+
+/* canvas */
+canvas{display:block;margin:10px auto;border-radius:6px;background:linear-gradient(180deg, rgba(0,0,30,0.4), rgba(0,0,10,0.2));box-shadow:0 14px 40px rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.03)}
+
+/* converge output */
+.converge-output{padding:10px;background:rgba(0,0,0,0.35);border-radius:6px;color:var(--muted);margin-bottom:8px;font-size:0.95rem}
+.converge-output ol{margin:6px 0 0 18px;color:#e6f7ff}
+
+/* quotes */
+blockquote{font-style:italic;color:var(--muted);border-left:3px solid rgba(63,193,255,0.18);padding-left:12px}
+
+/* footer */
+.nasa-footer{padding:18px 40px;text-align:center;color:rgb(255, 255, 255);border-top:1px solid rgba(255,255,255,0.02) ; }
+
+/* responsive */
+@media(max-width:1100px){ .panel#intro{grid-template-columns:1fr} #interactive .interactive-grid{grid-template-columns:1fr} .top-nav{display:none} }
+@media(max-width:700px){
+  .brand img{width:40px}
+  .hero{max-width:100%}
+}
+
+#ring
+{
+    display: flex;
+    width: 700px;
+    height: 350px;
+
+}

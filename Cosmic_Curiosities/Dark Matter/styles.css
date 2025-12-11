@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+/* SPACE + STARFIELD */
+body {
+  background: url("1.jpg") no-repeat center/cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  color: #d6e6ff;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+.stars {
+  position:absolute;inset:0;
+  background-image: url('B.jpg');
+  opacity:0.45;
+  background-size: 1400px;
+  animation: drift 960s linear infinite;
+  z-index:0;
+}
+@keyframes drift { from { background-position:0 0 } to { background-position:10000px 20000px } }
+
+/* HEADER */
+.header { display:flex;align-items:center;justify-content:space-between;padding:18px 6%;backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03);position:relative;z-index:2 }
+.brand { display:flex;align-items:center;gap:14px }
+.brand img { width:44px;filter:grayscale(1) brightness(1.2) }
+.page-title { font-family:'Orbitron',sans-serif;font-size:1.5rem;color:#7fcaff;margin:0 }
+.subtitle { color:#9fbfd6;font-size:0.9rem;margin:0 }
+
+/* NAV */
+.top-nav { display:flex;gap:12px }
+.top-nav a { color:#bfe1ff;text-decoration:none;padding:6px 8px;border-radius:6px;font-weight:600 }
+.top-nav a:hover { background:rgba(63,193,255,0.06);color:#7fcaff }
+
+/* SECTIONS */
+.section { padding:48px 6%; position:relative; z-index:2; border-bottom:1px solid rgba(255,255,255,0.02) }
+.heading { font-family:'Orbitron',sans-serif;color:#9cd2ff;font-size:26px;margin:0 0 12px }
+.lead { color:rgba(230,247,255,0.92);line-height:1.6;margin-bottom:12px }
+
+/* PANELS & CARDS */
+.panel { background:rgba(2,8,20,0.45);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(0,0,0,0.6) }
+.card-row { display:flex;flex-wrap:wrap;gap:16px;margin-top:12px }
+.nasa-card { width:320px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03) }
+.nasa-card img { width:300px;height:180px;object-fit:cover }
+.nasa-card .card-body { padding:12px }
+.nasa-card h3 { margin:6px 0;color:#7fcaff;font-family:'Orbitron',sans-serif;font-size:16px }
+.nasa-card p { color:#cfeaff;font-size:14px;margin:0 }
+
+/* CANVASES */
+.canvas-wrap { display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start }
+.canvas-panel { flex:1;min-width:300px;max-width:720px; }
+canvas { width:100%;height:auto;border-radius:8px;background:linear-gradient(180deg, rgba(0,0,20,0.45), rgba(0,0,10,0.2));border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 40px rgba(0,0,0,0.6);display:block }
+
+/* CONTROLS */
+.controls { display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px }
+.controls label { color:#bfe1ff;font-size:0.92rem }
+.controls input[type="range"] { width:200px }
+.btn { background:linear-gradient(90deg,#3fc1ff,#00b3ff);border:none;color:#001;padding:8px 12px;border-radius:8px;font-weight:700;cursor:pointer }
+.small { font-size:0.9rem;color:#cfeaff }
+
+/* FOOTER */
+.footer { padding:28px 6%;text-align:center;color:rgba(200,225,240,0.7);border-top:1px solid rgba(255,255,255,0.02);position:relative;z-index:2 }
+
+/* HELPERS */
+.fade-in { opacity:0;transform:translateY(18px);animation:fadeIn 1s ease forwards }
+@keyframes fadeIn { to { opacity:1;transform:none } }
+
+@media(max-width:980px){
+  .card-row{ justify-content:center }
+  .canvas-wrap{ flex-direction:column }
+}

@@ -1,0 +1,48 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+header {
+  background: rgba(26,31,54,0.9);
+  text-align: center;
+  padding: 3rem 1rem;
+  border-bottom: 2px solid #fff;
+}
+
+header h1 { font-size: 3rem; margin-bottom: 1rem; }
+header p { font-size: 1.3rem; }
+
+/* Sections */
+section { max-width: 1000px; margin: 2rem auto; padding: 2rem; background: rgba(0,0,0,0.6); border-radius: 12px; }
+
+.section-dark { background: rgba(26,31,54,0.85); border: 1px solid #fff; }
+
+/* Images */
+.main-img { display:block; margin:1rem auto; max-width:500px; border-radius:12px; }
+
+/* Cards */
+.cards-container { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:1.5rem; }
+.card { background: rgba(255,255,255,0.1); border-radius:12px; padding:1rem; max-width:300px; box-shadow:0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s; }
+.card img { width:100%; border-radius:8px; }
+.card h3 { margin:0.5rem 0; color:#ffd700; }
+.card:hover { transform: translateY(-5px); }
+
+/* Interactive */
+.interactive { text-align:center; }
+#digit-input { padding:0.5rem; font-size:1rem; width:200px; }
+#check-btn { padding:0.5rem 1rem; margin-left:0.5rem; cursor:pointer; background:#ffd700; color:#000; border:none; border-radius:4px; font-weight:bold; }
+#check-btn:hover { background:#ffb700; }
+
+/* Quotes */
+blockquote { font-style:italic; margin:1rem auto; max-width:700px; border-left:4px solid #ffd700; padding-left:1rem; }
+
+/* Footer */
+footer { text-align:center; padding:1.5rem; background: rgba(26,31,54,0.9); color:#bbb; margin-top:2rem; }
+
+/* Responsive */
+@media(max-width:768px){ .cards-container{ flex-direction:column; align-items:center; } }

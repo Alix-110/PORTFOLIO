@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Sonification: Hearing the Universe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎵</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-satellite"></i>
+                <span>CosmicSonify</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#example">Example</a></li>
+                <li><a href="#interactive">Interactive</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Cosmic Sonification</h1>
+                <h2 class="hero-subtitle">Hearing the Universe's Hidden Data</h2>
+                <p class="hero-description">Transform astronomical data into meaningful sound through rigorous scientific sonification processes used by NASA and research institutions worldwide.</p>
+                <a href="#process" class="cta-button">Explore the Process</a>
+            </div>
+            <div class="hero-visual">
+                <div class="data-wave">
+                    <canvas id="waveCanvas"></canvas>
+                </div>
+                <div class="hero-image-placeholder">
+                    <div class="placeholder-note">
+                        <img src="download.jpeg" width="450px">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Overview Section -->
+        <section id="overview" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-compass"></i> What is Scientific Sonification?</h2>
+                <p class="section-subtitle">Beyond space "soundtracks" to legitimate data analysis</p>
+            </div>
+            
+            <div class="overview-content">
+                <div class="overview-text">
+                    <p>Sonification is the <strong>data-dependent generation of sound</strong> — transforming scientific measurements into auditory displays that maintain the integrity and relationships of the original data.</p>
+                    
+                    <div class="definition-card">
+                        <h3><i class="fas fa-star"></i> Core Principle</h3>
+                        <p>Sonification must maintain <strong>scientific integrity</strong> while creating <strong>cognitively useful</strong> auditory displays. It's not music composition — it's <strong>auditory data analysis</strong>.</p>
+                    </div>
+                    
+                    <div class="key-differences">
+                        <h3><i class="fas fa-random"></i> Key Distinctions</h3>
+                        <div class="differences-grid">
+                            <div class="diff-card">
+                                <h4><i class="fas fa-wave-square"></i> Audification</h4>
+                                <p>Direct playback of data as sound (time-series as audio waveform)</p>
+                            </div>
+                            <div class="diff-card">
+                                <h4><i class="fas fa-sliders-h"></i> Parameter Mapping</h4>
+                                <p>Data dimensions control sound parameters</p>
+                            </div>
+                            <div class="diff-card">
+                                <h4><i class="fas fa-cube"></i> Model-Based</h4>
+                                <p>Physical models of phenomena generate sounds</p>
+                            </div>
+                            <div class="diff-card">
+                                <h4><i class="fas fa-hand-pointer"></i> Interactive</h4>
+                                <p>Real-time exploration of data through sound</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overview-image">
+                    <div class="image-placeholder">
+                        <div class="placeholder-content">
+                            <i class="fas fa-universal-access"></i>
+                            <h4>Data Accessibility</h4>
+                            <p>Sonification makes cosmic data accessible to visually impaired researchers and reveals patterns that might be missed in visual displays.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="content-section dark-section">
+            <div class="section-header">
+                <h2><i class="fas fa-project-diagram"></i> The Complete 7-Step Sonification Process</h2>
+                <p class="section-subtitle">From raw cosmic data to meaningful auditory display</p>
+            </div>
+            
+            <div class="process-steps">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-database"></i> Data Selection & Justification</h3>
+                        <p>Identifying the scientific phenomenon to sonify and ensuring the data is appropriate for auditory display.</p>
+                        <ul>
+                            <li><strong>Source:</strong> Magnetospheric waves, solar oscillations, exoplanet transits</li>
+                            <li><strong>Type:</strong> Time-series, spectra, images, simulations</li>
+                            <li><strong>Question:</strong> What might sound reveal that visuals don't?</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="image-placeholder small">
+                            <div class="placeholder-content">
+                                <i class="fas fa-satellite-dish"></i>
+                                <p>Data sources: Chandra X-ray, Hubble, Kepler, etc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-filter"></i> Data Preprocessing & Cleaning</h3>
+                        <p>Preparing raw data for sonification while preserving scientific meaning.</p>
+                        <ul>
+                            <li><strong>Temporal Alignment:</strong> Match sampling rates to audible range (20Hz-20kHz)</li>
+                            <li><strong>Normalization:</strong> Scale amplitudes appropriately</li>
+                            <li><strong>Noise Reduction:</strong> Remove artifacts unrelated to phenomenon</li>
+                            <li><strong>Resonance Enhancement:</strong> Amplify scientifically meaningful frequencies</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="image-placeholder small">
+                            <div class="placeholder-content">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Raw vs. processed light curve data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-map-signs"></i> Mapping Strategy Design</h3>
+                        <p>The critical translation layer where science meets perception.</p>
+                        
+                        <div class="mapping-example">
+                            <h4><i class="fas fa-table"></i> Parameter Mapping Matrix</h4>
+                            <div class="mapping-table">
+                                <div class="mapping-header">
+                                    <div>Data Dimension</div>
+                                    <div>Sound Parameter</div>
+                                    <div>Perceptual Consideration</div>
+                                </div>
+                                <div class="mapping-row">
+                                    <div>Solar flare intensity</div>
+                                    <div>Amplitude/Loudness</div>
+                                    <div>Beware logarithmic perception</div>
+                                </div>
+                                <div class="mapping-row">
+                                    <div>Plasma density</div>
+                                    <div>Frequency/Pitch</div>
+                                    <div>Linear vs. exponential mapping</div>
+                                </div>
+                                <div class="mapping-row">
+                                    <div>Magnetic field polarity</div>
+                                    <div>Stereo panning</div>
+                                    <div>Left/right = north/south</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-visual">
+                        <div class="image-placeholder small">
+                            <div class="placeholder-content">
+                                <i class="fas fa-sliders-h"></i>
+                                <p>Mapping interface showing data-to-sound parameters</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-wave-square"></i> Sound Synthesis & Generation</h3>
+                        <p>Technical implementation of the sonification.</p>
+                        
+                        <div class="synthesis-methods">
+                            <h4><i class="fas fa-cogs"></i> Algorithm Selection</h4>
+                            <div class="methods-grid">
+                                <div class="method">
+                                    <h5><i class="fas fa-plus-circle"></i> Additive Synthesis</h5>
+                                    <p>Building complex sounds from sine waves (good for spectral data)</p>
+                                </div>
+                                <div class="method">
+                                    <h5><i class="fas fa-grain"></i> Granular Synthesis</h5>
+                                    <p>For particle/event-based data</p>
+                                </div>
+                                <div class="method">
+                                    <h5><i class="fas fa-cube"></i> Physical Modeling</h5>
+                                    <p>Simulating actual vibration mechanisms</p>
+                                </div>
+                                <div class="method">
+                                    <h5><i class="fas fa-water"></i> Waveguide Synthesis</h5>
+                                    <p>For wave propagation phenomena</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-visual">
+                        <div class="image-placeholder small">
+                            <div class="placeholder-content">
+                                <i class="fas fa-music"></i>
+                                <p>Digital Audio Workstation with space data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-sync-alt"></i> Iterative Refinement & Validation</h3>
+                        <p>Scientific validation loop to ensure accuracy and usefulness.</p>
+                        
+                        <div class="validation-steps">
+                            <div class="validation-step">
+                                <span class="validation-number">1</span>
+                                <p><strong>Blind Listening Tests:</strong> Can scientists identify features they know visually?</p>
+                            </div>
+                            <div class="validation-step">
+                                <span class="validation-number">2</span>
+                                <p><strong>Discovery Validation:</strong> Does sound reveal NEW patterns?</p>
+                            </div>
+                            <div class="validation-step">
+                                <span class="validation-number">3</span>
+                                <p><strong>Accessibility Testing:</strong> Works for visually impaired users?</p>
+                            </div>
+                            <div class="validation-step">
+                                <span class="validation-number">4</span>
+                                <p><strong>Adjust mappings</strong> based on findings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-visual">
+                        <div class="image-placeholder small">
+                            <div class="placeholder-content">
+                                <i class="fas fa-check-double"></i>
+                                <p>Researchers testing sonifications in lab setting</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 6 -->
+                <div class="process-step">
+                    <div class="step-number">06</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-info-circle"></i> Contextualization & Metadata</h3>
+                        <p>Critical information for proper interpretation of the sonification.</p>
+                        
+                        <div class="context-items">
+                            <div class="context-item">
+                                <i class="fas fa-headphones"></i>
+                                <div>
+                                    <h5>Auditory Legend</h5>
+                                    <p>Short reference sounds explaining the mapping</p>
+                                </div>
+                            </div>
+                            <div class="context-item">
+                                <i class="fas fa-microphone"></i>
+                                <div>
+                                    <h5>Narration Layer</h5>
+                                    <p>Optional voice explaining what's being heard</p>
+                                </div>
+                            </div>
+                            <div class="context-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h5>Time Stamps</h5>
+                                    <p>Auditory markers for temporal orientation</p>
+                                </div>
+                            </div>
+                            <div class="context-item">
+                                <i class="fas fa-volume-mute"></i>
+                                <div>
+                                    <h5>Silence Handling</h5>
+                                    <p>How to represent missing/no data periods</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-visual">
+                        <div class="image-placeholder small">
+                            <div class="placeholder-content">
+                                <i class="fas fa-file-alt"></i>
+                                <p>Metadata documentation for a sonification project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 7 -->
+                <div class="process-step">
+                    <div class="step-number">07</div>
+                    <div class="step-content">
+                        <h3><i class="fas fa-rocket"></i> Implementation & Dissemination</h3>
+                        <p>Deploying the sonification for various uses and audiences.</p>
+                        
+                        <div class="deployment-grid">
+                            <div class="deploy-card">
+                                <i class="fas fa-globe"></i>
+                                <h5>Interactive Web Apps</h5>
+                                <p>WebGL/WebAudio for browser exploration</p>
+                            </div>
+                            <div class="deploy-card">
+                                <i class="fas fa-film"></i>
+                                <h5>Fixed Media</h5>
+                                <p>For documentaries and planetarium shows</p>
+                            </div>
+                            <div class="deploy-card">
+                                <i class="fas fa-tools"></i>
+                                <h5>Scientific Tools</h5>
+                                <p>Integrated into data analysis pipelines</p>
+                            </div>
+                            <div class="deploy-card">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h5>Educational Packages</h5>
+                                <p>With lesson plans explaining mappings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-visual">
+                        <div class="image-placeholder small">
+                            <div class="placeholder-content">
+                                <i class="fas fa-users"></i>
+                                <p>Public engagement at a planetarium sonification exhibit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Section -->
+        <section id="example" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-meteor"></i> Real-World Example: Cassiopeia A Supernova</h2>
+                <p class="section-subtitle">NASA Chandra X-ray Observatory Sonification</p>
+            </div>
+            
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="image-placeholder large">
+                        <div class="placeholder-content">
+                            <i class="fas fa-star"></i>
+                            <h4>Cassiopeia A Supernova Remnant</h4>
+                            <p>X-ray image showing expanding shock waves and elemental distribution</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example-details">
+                    <div class="example-step">
+                        <h3><span class="example-step-number">1</span> Data Source</h3>
+                        <p>X-ray spectra from Chandra X-ray Observatory showing the supernova remnant's expansion and elemental composition.</p>
+                    </div>
+                    
+                    <div class="example-step">
+                        <h3><span class="example-step-number">2</span> Mapping Strategy</h3>
+                        <div class="example-mapping">
+                            <div class="mapping-pair">
+                                <div class="data-dim">Distance from center</div>
+                                <div class="arrow">→</div>
+                                <div class="sound-param">Pitch (higher outward)</div>
+                            </div>
+                            <div class="mapping-pair">
+                                <div class="data-dim">Element abundance</div>
+                                <div class="arrow">→</div>
+                                <div class="sound-param">Different instruments (violin=iron, brass=silicon)</div>
+                            </div>
+                            <div class="mapping-pair">
+                                <div class="data-dim">Brightness</div>
+                                <div class="arrow">→</div>
+                                <div class="sound-param">Volume</div>
+                            </div>
+                            <div class="mapping-pair">
+                                <div class="data-dim">2D position</div>
+                                <div class="arrow">→</div>
+                                <div class="sound-param">Stereo field</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-step">
+                        <h3><span class="example-step-number">3</span> Generation & Output</h3>
+                        <ul>
+                            <li><strong>Generation:</strong> Sample-based synthesis with orchestral samples</li>
+                            <li><strong>Time Compression:</strong> 14 light-years across → 30 seconds of audio</li>
+                            <li><strong>Spatialization:</strong> Circular scan from center outward</li>
+                            <li><strong>Result:</strong> Hear the supernova's expansion and elemental distribution</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="example-audio">
+                        <h3><i class="fas fa-volume-up"></i> Listen to the Result</h3>
+                        <div class="audio-player">
+                            <div class="audio-visualizer">
+                                <canvas id="audioVisualizer"></canvas>
+                            </div>
+                            <div class="audio-controls">
+                                <button id="playBtn" class="audio-btn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button id="pauseBtn" class="audio-btn">
+                                    <i class="fas fa-pause"></i>
+                                </button>
+                                <div class="audio-info">
+                                    <div class="audio-title">Cassiopeia A Sonification</div>
+                                    <div class="audio-time">0:00 / 0:30</div>
+                                </div>
+                                <input type="range" id="volumeSlider" min="0" max="100" value="70">
+                            </div>
+                            <div class="audio-note">
+                                <i class="fas fa-info-circle"></i>
+                                <p>This is a simulation. Actual NASA sonifications are available on their website.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Section -->
+        <section id="interactive" class="content-section dark-section">
+            <div class="section-header">
+                <h2><i class="fas fa-sliders-h"></i> Interactive Sonification Explorer</h2>
+                <p class="section-subtitle">Try mapping data parameters to sound yourself</p>
+            </div>
+            
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <h3><i class="fas fa-cogs"></i> Data-to-Sound Mappings</h3>
+                    
+                    <div class="control-group">
+                        <label for="dataParam">Data Parameter</label>
+                        <select id="dataParam" class="control-select">
+                            <option value="brightness">Star Brightness</option>
+                            <option value="temperature">Solar Temperature</option>
+                            <option value="density">Plasma Density</option>
+                            <option value="velocity">Orbital Velocity</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="soundParam">Sound Parameter</label>
+                        <select id="soundParam" class="control-select">
+                            <option value="pitch">Pitch/Frequency</option>
+                            <option value="volume">Volume/Amplitude</option>
+                            <option value="timbre">Timbre/Brightness</option>
+                            <option value="pan">Stereo Panning</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="mappingType">Mapping Type</label>
+                        <select id="mappingType" class="control-select">
+                            <option value="linear">Linear</option>
+                            <option value="logarithmic">Logarithmic</option>
+                            <option value="exponential">Exponential</option>
+                            <option value="inverse">Inverse</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="timeScale">Time Scale Compression</label>
+                        <div class="slider-container">
+                            <span>1:1</span>
+                            <input type="range" id="timeScale" min="1" max="1000" value="100" class="slider">
+                            <span>1:1000</span>
+                        </div>
+                        <div class="slider-value" id="timeScaleValue">1:100 (1 day = 14.4 minutes)</div>
+                    </div>
+                    
+                    <div class="control-buttons">
+                        <button id="previewBtn" class="control-btn primary">
+                            <i class="fas fa-play-circle"></i> Preview Sonification
+                        </button>
+                        <button id="resetBtn" class="control-btn secondary">
+                            <i class="fas fa-redo"></i> Reset to Default
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="interactive-visualization">
+                    <div class="viz-header">
+                        <h3><i class="fas fa-chart-line"></i> Data Visualization</h3>
+                        <div class="viz-type">
+                            <span class="viz-label">Data Source:</span>
+                            <span class="viz-value">Kepler Light Curve (Exoplanet Transit)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="viz-container">
+                        <canvas id="dataVizCanvas"></canvas>
+                    </div>
+                    
+                    <div class="sonification-output">
+                        <h4><i class="fas fa-music"></i> Generated Sonification</h4>
+                        <div class="sonification-visualizer">
+                            <canvas id="sonificationCanvas"></canvas>
+                        </div>
+                        <div class="output-info">
+                            <div class="output-item">
+                                <span class="output-label">Data Points:</span>
+                                <span class="output-value" id="dataPoints">1,024</span>
+                            </div>
+                            <div class="output-item">
+                                <span class="output-label">Duration:</span>
+                                <span class="output-value" id="duration">12.8s</span>
+                            </div>
+                            <div class="output-item">
+                                <span class="output-label">Frequency Range:</span>
+                                <span class="output-value" id="freqRange">200-1200 Hz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="interactive-note">
+                <i class="fas fa-lightbulb"></i>
+                <p>This interactive demo shows how different mapping choices affect the resulting sonification. Real scientific sonification tools like xSonify (NASA) offer more sophisticated parameter controls.</p>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-book-open"></i> Resources & Further Learning</h2>
+                <p class="section-subtitle">Explore the world of scientific sonification</p>
+            </div>
+            
+            <div class="resources-container">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>NASA Sonifications</h3>
+                    <p>Official NASA sonification projects from Chandra, Hubble, and other missions.</p>
+                    <a href="#" class="resource-link">Explore NASA Sounds <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Educational Materials</h3>
+                    <p>Lesson plans, tutorials, and workshops on scientific sonification.</p>
+                    <a href="#" class="resource-link">Access Materials <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Tools & Software</h3>
+                    <p>xSonify, Sonification Sandbox, and other tools for creating sonifications.</p>
+                    <a href="#" class="resource-link">Download Tools <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community & Research</h3>
+                    <p>International Community for Auditory Display (ICAD) and research papers.</p>
+                    <a href="#" class="resource-link">Join Community <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <div class="ethical-considerations">
+                <h3><i class="fas fa-balance-scale"></i> Ethical Considerations in Sonification</h3>
+                <div class="ethical-grid">
+                    <div class="ethical-item">
+                        <h4><i class="fas fa-eye-slash"></i> Accessibility</h4>
+                        <p>Making data accessible to visually impaired researchers while avoiding exclusion of others.</p>
+                    </div>
+                    <div class="ethical-item">
+                        <h4><i class="fas fa-clipboard-check"></i> Truth in Representation</h4>
+                        <p>Clearly distinguishing measured data from artistic interpretation.</p>
+                    </div>
+                    <div class="ethical-item">
+                        <h4><i class="fas fa-globe-americas"></i> Cultural Considerations</h4>
+                        <p>Avoiding ethnocentric musical assumptions in mapping choices.</p>
+                    </div>
+                    <div class="ethical-item">
+                        <h4><i class="fas fa-tags"></i> Purpose Clarity</h4>
+                        <p>Labeling sonifications clearly as analytical, educational, outreach, or artistic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-satellite"></i> CosmicSonify</h3>
+                <p>An educational resource on scientific sonification of space data.</p>
+                <p class="footer-note">This site is for educational purposes. For actual NASA sonifications, visit <a href="https://www.nasa.gov" target="_blank">nasa.gov</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#example">Example</a></li>
+                    <li><a href="#interactive">Interactive</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Credits</h4>
+                <p>Based on NASA and research institution sonification methodologies.</p>
+                
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 CosmicSonify Educational Project. All rights reserved.</p>
+            <p class="disclaimer">This is a demonstration website for educational purposes about scientific sonification processes.</p>
+        </div>
+        
+        <div class="stars-background"></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
