@@ -1,0 +1,93 @@
+/* New design techniques:
+   - Glass-morphism panels
+   - Spectral neon gradient accents
+   - Soft glow for important elements
+   - Accessible, high-contrast text on dark backdrop
+*/
+
+:root{
+  --bg-1: #06080b;
+  --bg-2: #081726;
+  --accent: #9be3ff;
+  --gold: #ffd86b;
+  --glass: rgba(255,255,255,0.04);
+  --muted: #9fb6c8;
+}
+
+/* Reset */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg-1) 0%, #00121a 100%);
+  color: #e6f9ff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header / brand */
+header{
+  padding:28px 20px;
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid rgba(155,227,255,0.06);
+}
+.brand h1{
+  margin:0;
+  font-size:1.6rem;
+  color:var(--accent);
+  letter-spacing:1px;
+  text-shadow:0 3px 12px rgba(0,160,180,0.06);
+}
+.brand .tag{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* Main layout */
+main{
+  max-width:1100px;
+  margin:26px auto;
+  padding:18px;
+}
+
+/* Section headings */
+h2{
+  color:var(--gold);
+  margin-top:18px;
+  padding-bottom:6px;
+  border-bottom:1px solid rgba(255,216,107,0.05);
+  cursor:pointer;
+}
+
+/* Glass panels for code and controls */
+pre{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:10px;
+  border:1px solid rgba(155,227,255,0.06);
+  padding:14px;
+  color:#bfeff8;
+  overflow:auto;
+  box-shadow: 0 6px 30px rgba(0,20,30,0.5), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* Animation placeholder */
+.animation-placeholder{
+  margin-top:12px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+  padding:12px;
+  border-radius:10px;
+  border:1px solid rgba(155,227,255,0.06);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+}
+.animation-placeholder video{
+  width:100%;
+  border-radius:8px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.7);
+}
+
+/* small responsive */
+@media (max-width:900px){
+  main{padding:12px}
+  .brand h1{font-size:1.3rem}
+}
