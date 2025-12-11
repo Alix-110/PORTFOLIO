@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stellar Isochrones & Cluster Age Fitting</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Stellar Isochrones & Cluster Age Fitting</h1>
+      <p class="lead">Overlay isochrones to estimate the age of a simulated star cluster</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="purpose">
+      <h2>Purpose</h2>
+      <p>
+        Demonstrate how theoretical isochrones can be used to fit the age of a star cluster.
+        Stars of different temperatures and luminosities are plotted along with isochrones for 1 Gyr, 5 Gyr, and 10 Gyr.
+      </p>
+    </section>
+
+    <section id="background">
+      <h2>Background</h2>
+      <p>
+        Isochrones represent stars of the same age but different masses. By comparing the cluster's HR diagram 
+        with isochrones, astronomers estimate the cluster's age. The main-sequence turn-off temperature is key.
+      </p>
+    </section>
+
+    <section id="methodology">
+      <h2>Methodology</h2>
+      <ol>
+        <li>Generate synthetic star cluster (temperature & luminosity) using simple L ~ T⁴ relation.</li>
+        <li>Generate simplified isochrones for multiple ages.</li>
+        <li>Plot stars and isochrones on logarithmic H-R diagram.</li>
+        <li>Compare cluster to isochrones to determine best-fit age.</li>
+      </ol>
+    </section>
+
+    <section id="pseudocode">
+      <h2>Pseudocode</h2>
+      <pre><code>
+Generate N stars with temperatures and luminosities
+For each isochrone age:
+    Calculate luminosity as a function of temperature (simplified)
+Plot star cluster points
+Overlay each isochrone with different color/linestyle
+Add axis labels, title, legend
+Show figure
+      </code></pre>
+    </section>
+
+    <section id="python-code">
+      <h2>Python Simulation Code</h2>
+      <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.style.use("dark_background")
+
+
+np.random.seed(42)
+n_stars = 100
+
+# Temperature range (K)
+temps = np.random.uniform(3500, 10000, n_stars)
+
+# Luminosity using simple main-sequence relation: L ~ T^4
+luminosities = (temps / 5778) ** 4 * np.random.uniform(0.7, 1.3, n_stars)
+
+
+# Isochrones for 1 Gyr, 5 Gyr, 10 Gyr (arbitrary simplified power laws)
+iso_ages = [1, 5, 10]  # in Gyr
+iso_colors = ['#00ffff', '#ff7f50', '#ff00ff']
+iso_labels = ['1 Gyr', '5 Gyr', '10 Gyr']
+
+iso_temps = np.linspace(3500, 10000, 200)
+iso_lums = []
+for age in iso_ages:
+    # Simplified model: older clusters have cooler main-sequence turn-off
+    lum = (iso_temps / 5778) ** (4 - 0.1*age)  # decreasing slope with age
+    iso_lums.append(lum)
+
+
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.scatter(temps, luminosities, color='yellow', s=40, edgecolors='w', alpha=0.8, label='Cluster Stars')
+
+# Plot isochrones
+for i, age in enumerate(iso_ages):
+    ax.plot(iso_temps, iso_lums[i], color=iso_colors[i], linestyle='--', label=f"Isochrone: {iso_labels[i]}")
+
+ax.set_yscale('log')
+ax.set_xscale('log')
+ax.set_xlim(max(temps), min(temps))  # invert x-axis
+ax.set_ylim(min(luminosities)*0.8, max(luminosities)*1.5)
+
+ax.set_xlabel("Temperature (K)")
+ax.set_ylabel("Luminosity (L/L_sun)")
+ax.set_title("Stellar Isochrones / Cluster Age Fitting")
+
+ax.legend()
+plt.tight_layout()
+plt.show()
+
+      </code></pre>
+    </section>
+
+    <section id="explanation">
+      <h2>Explanation</h2>
+      <p>
+        - Cluster stars are randomly distributed in temperature/luminosity. <br>
+        - Isochrones are simplified approximations of real stellar evolution tracks. <br>
+        - The main-sequence turn-off shifts to cooler temperatures for older ages. <br>
+        - By overlaying isochrones on the cluster, we can estimate the cluster age visually.
+      </p>
+    </section>
+
+    <section id="expected-output">
+      <h2>Expected Output</h2>
+      <p>
+        Scatter plot of cluster stars in yellow with overlaid isochrones in cyan, coral, and magenta.  
+        Log-log axes with inverted x-axis to follow HR diagram convention.
+      </p>
+      <div class="animation-placeholder">
+        <p><img src="1.png" width="1000px"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
