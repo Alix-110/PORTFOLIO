@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracurricular Activities | Muhammad Ali Imran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Space Background -->
+    <div class="space-bg">
+        <div class="stars" id="stars"></div>
+        <div class="planet"></div>
+        <div class="planet small"></div>
+        <div class="activity-icon basketball">
+            <i class="fas fa-basketball-ball"></i>
+        </div>
+        <div class="activity-icon cooking">
+            <i class="fas fa-utensils"></i>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-running"></i>
+                </div>
+                <h1 class="logo-text">EXTRACURRICULARS</h1>
+            </div>
+            <div class="subtitle">
+                <span>Beyond Academics: Basketball & Culinary Arts</span>
+            </div>
+            <div class="back-home">
+                <a href="../explore.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Portfolio</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Overview Section -->
+            <section class="overview-section">
+                <div class="overview-card">
+                    <h2>Holistic Development Profile</h2>
+                    <p>My extracurricular journey demonstrates a balanced approach to personal growth, combining athletic excellence with creative expression through culinary arts.</p>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-value">8+</div>
+                            <div class="stat-label">Years Basketball</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">3+</div>
+                            <div class="stat-label">Years Cooking</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">National</div>
+                            <div class="stat-label">Level Achieved</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">30+</div>
+                            <div class="stat-label">Dishes Mastered</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Basketball Section (Brief) -->
+            <section class="activity-section brief" id="basketball-brief">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-basketball-ball"></i>
+                    </div>
+                    <h2>Basketball Journey</h2>
+                    <span class="institution">2015-Present | Competitive Athletics</span>
+                </div>
+                
+                <div class="brief-content">
+                    <div class="brief-stats">
+                        <div class="brief-stat">
+                            <div class="brief-value">National</div>
+                            <div class="brief-label">Runner-Up</div>
+                        </div>
+                        <div class="brief-stat">
+                            <div class="brief-value">2</div>
+                            <div class="brief-label">Institutions</div>
+                        </div>
+                        <div class="brief-stat">
+                            <div class="brief-value">FBISE</div>
+                            <div class="brief-label">Participant</div>
+                        </div>
+                        <div class="brief-stat">
+                            <div class="brief-value">Shooting</div>
+                            <div class="brief-label">Guard</div>
+                        </div>
+                    </div>
+                    
+                    <div class="brief-description">
+                        <p>Eight years of competitive basketball representing school and college at national level. Achieved runner-up in National Student Games, participated in FBISE championships.</p>
+                        <div class="brief-skills">
+                            <span class="skill-tag"><i class="fas fa-users"></i> Teamwork</span>
+                            <span class="skill-tag"><i class="fas fa-trophy"></i> Leadership</span>
+                            <span class="skill-tag"><i class="fas fa-brain"></i> Strategy</span>
+                        </div>
+                    </div>
+                    
+                    <button class="expand-button" onclick="expandSection('basketball')">
+                        <i class="fas fa-chevron-down"></i>
+                        <span>Explore Full Basketball Journey</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Basketball Section (Expanded - Hidden Initially) -->
+            <section class="activity-section expanded" id="basketball-expanded" style="display: none;">
+                <div class="section-header expanded-header">
+                    <div class="header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-basketball-ball"></i>
+                        </div>
+                        <div>
+                            <h2>Basketball Journey: 2015-Present</h2>
+                            <span class="institution">From School Courts to National Stage</span>
+                        </div>
+                    </div>
+                    <button class="collapse-button" onclick="collapseSection('basketball')">
+                        <i class="fas fa-chevron-up"></i>
+                        <span>Collapse</span>
+                    </button>
+                </div>
+                
+                <!-- Basketball Timeline -->
+                <div class="timeline-section">
+                    <h3>Basketball Timeline</h3>
+                    <div class="timeline-container">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2015</div>
+                            <div class="timeline-content">
+                                <h4>Beginnings & Discovery</h4>
+                                <p>Started basketball in 7th grade at St. Mary's Academy. Learned fundamentals and developed passion for the sport.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2017-2018</div>
+                            <div class="timeline-content">
+                                <h4>School Team Starter</h4>
+                                <p>Earned starting position on school team. Learned strategic playmaking and defensive techniques.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2019</div>
+                            <div class="timeline-content">
+                                <h4>College Level Transition</h4>
+                                <p>Joined APS Fort Road College team. Adapted to faster play.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020</div>
+                            <div class="timeline-content">
+                                <h4>FBISE Championship</h4>
+                                <p>Represented college in FBISE Championship. Team reached finals and then turned out to be champions.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2022</div>
+                            <div class="timeline-content">
+                                <h4>National Student Olympics Games</h4>
+                                <p>Selected for FBISE team. Achieved National Runner-Up position in finals.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023-Present</div>
+                            <div class="timeline-content">
+                                <h4>Local League & Mentorship</h4>
+                                <p>Playing in local leagues while mentoring younger players and focusing on strategic development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Single Video Section -->
+                <div class="video-section">
+                    <h3>Basketball Highlight</h3>
+                    <div class="video-container">
+                        <div class="video-player-wrapper">
+                            <video class="video-player" id="basketballVideo" controls  >
+                                <source src="Night Hoops.mp4" type="video/mp4" >
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay" onclick="toggleVideoPlay()">
+                                <div class="play-button">
+                                    <i class="fas fa-play" id="playIcon"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-info-expanded">
+                            <h4>Practicing Late Night to relieve All Day-Stress and boost mental health</h4>
+                            
+                          
+                                
+                               
+                                 
+                    </div>
+                </div>
+                
+                <!-- Skills Developed -->
+                <div class="skills-developed">
+                    <h3>Skills Developed</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-users"></i>
+                            <h4>Teamwork</h4>
+                            <p>Effective collaboration in diverse teams</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-user-tie"></i>
+                            <h4>Leadership</h4>
+                            <p>Responsibility and mentoring</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-heartbeat"></i>
+                            <h4>Resilience</h4>
+                            <p>Mental toughness through competition</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chess"></i>
+                            <h4>Strategy</h4>
+                            <p>Analytical thinking and game planning</p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </section>
+
+            <!-- Cooking Section (Brief) -->
+            <section class="activity-section brief" id="cooking-brief">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h2>Culinary Arts</h2>
+                    <span class="institution">Creative Expression & Cultural Exploration</span>
+                </div>
+                
+                <div class="brief-content">
+                    <div class="brief-stats">
+                        <div class="brief-stat">
+                            <div class="brief-value">30+</div>
+                            <div class="brief-label">Dishes</div>
+                        </div>
+                        <div class="brief-stat">
+                            <div class="brief-value">3</div>
+                            <div class="brief-label">Cuisines</div>
+                        </div>
+                        <div class="brief-stat">
+                            <div class="brief-value">Family</div>
+                            <div class="brief-label">Tradition</div>
+                        </div>
+                        <div class="brief-stat">
+                            <div class="brief-value">Creative</div>
+                            <div class="brief-label">Expression</div>
+                        </div>
+                    </div>
+                    
+                    <div class="brief-description">
+                        <p>Five years of culinary exploration blending traditional Pakistani cuisine with international techniques. Developed as a creative outlet and method of cultural preservation and innovation.</p>
+                        <div class="brief-skills">
+                            <span class="skill-tag"><i class="fas fa-lightbulb"></i> Creativity</span>
+                            <span class="skill-tag"><i class="fas fa-flask"></i> Experimentation</span>
+                            <span class="skill-tag"><i class="fas fa-heart"></i> Cultural Pride</span>
+                        </div>
+                    </div>
+                    
+                    <button class="expand-button" onclick="expandSection('cooking')">
+                        <i class="fas fa-chevron-down"></i>
+                        <span>Explore Cooking Philosophy</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Cooking Section (Expanded - Hidden Initially) -->
+            <section class="activity-section expanded" id="cooking-expanded" style="display: none;">
+                <div class="section-header expanded-header">
+                    <div class="header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div>
+                            <h2>Culinary Arts: Creative & Cultural Journey</h2>
+                            <span class="institution">Beyond Nutrition: Philosophy, Tradition & Innovation</span>
+                        </div>
+                    </div>
+                    <button class="collapse-button" onclick="collapseSection('cooking')">
+                        <i class="fas fa-chevron-up"></i>
+                        <span>Collapse</span>
+                    </button>
+                </div>
+                
+                <!-- Cooking Philosophy -->
+                <div class="philosophy-section">
+                    <h3>Cooking Philosophy</h3>
+                    <div class="philosophy-grid">
+                        <div class="philosophy-card">
+                            <div class="philosophy-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h4>Cultural Preservation</h4>
+                            <p>Learning traditional Pakistani recipes passed down through generations, understanding the historical and cultural significance of each dish, and preserving culinary heritage while adapting to modern contexts.</p>
+                        </div>
+                        <div class="philosophy-card">
+                            <div class="philosophy-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4>Creative Innovation</h4>
+                            <p>Experimenting with fusion cuisine, combining traditional Pakistani flavors with international techniques, creating new dishes that respect tradition while embracing innovation and personal expression.</p>
+                        </div>
+                        <div class="philosophy-card">
+                            <div class="philosophy-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Community & Connection</h4>
+                            <p>Using cooking as a means to build community, share cultural experiences, and create connections. Understanding that food is more than sustenance—it's a language of love and connection.</p>
+                        </div>
+                        <div class="philosophy-card">
+                            <div class="philosophy-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4>Scientific Exploration</h4>
+                            <p>Approaching cooking as applied chemistry and physics. Understanding the science behind techniques, flavor combinations, and food transformations for precise and consistent results.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Culinary Journey -->
+                <div class="journey-section">
+                    <h3>Culinary Journey</h3>
+                    <div class="journey-steps">
+                        <div class="journey-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Family Kitchen Foundation (2018)</h4>
+                                <p>Started assisting in family kitchen, learning traditional Pakistani cooking fundamentals from grandmother and mother. Mastered basic techniques and developed appreciation for traditional recipes.</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Independent Exploration (2019-2020)</h4>
+                                <p>Began independent cooking experiments. Explored baking, international cuisines, and recipe development. Started documenting recipes and techniques systematically.</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Fusion Innovation (2021-2022)</h4>
+                                <p>Started creating fusion dishes combining Pakistani and international flavors. Developed signature dishes that reflect both cultural heritage and personal creativity.</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Community & Sharing (2023-Present)</h4>
+                                <p>Began hosting cooking sessions for friends and family, sharing knowledge and recipes. Documenting culinary journey as part of cultural exchange and personal development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+               
+                
+            </section>
+
+            <!-- Comparison Section -->
+            <section class="comparison-section">
+                <div class="comparison-card">
+                    <h3>Holistic Development Through Extracurriculars</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <h4>Basketball</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Competitive discipline</li>
+                                <li><i class="fas fa-check-circle"></i> Team leadership</li>
+                                <li><i class="fas fa-check-circle"></i> Strategic thinking</li>
+                                <li><i class="fas fa-check-circle"></i> Resilience under pressure</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>Cooking</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Creative expression</li>
+                                <li><i class="fas fa-check-circle"></i> Cultural preservation</li>
+                                <li><i class="fas fa-check-circle"></i> Scientific experimentation</li>
+                                <li><i class="fas fa-check-circle"></i> Community building</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>Combined Value</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Balanced personal development</li>
+                                <li><i class="fas fa-check-circle"></i> Diverse skill acquisition</li>
+                                <li><i class="fas fa-check-circle"></i> Time management mastery</li>
+                                <li><i class="fas fa-check-circle"></i> Holistic growth profile</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Extracurricular </h3>
+                    <p>Demonstrating holistic development through sports and creative arts</p>
+                </div>
+               
+            <p class="copyright">© 2025 Muhammad Ali Imran. Extracurricular activities demonstrating balanced personal development.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
