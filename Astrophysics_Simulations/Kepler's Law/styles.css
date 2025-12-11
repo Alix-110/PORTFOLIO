@@ -1,0 +1,78 @@
+/* Dark modern astrophysics theme */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0c1a;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1b1c36;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 2px solid #ffcc00;
+}
+
+header h1 {
+    margin: 0;
+    color: #ffcc00;
+}
+
+main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    color: #ffcc00;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+}
+
+pre {
+    background-color: #1b1c36;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    color: #00ffcc;
+}
+
+.animation-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #2b2c4a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    border: 2px dashed #ffcc00;
+    margin-top: 1rem;
+}
+
+ul, ol {
+    margin-left: 2rem;
+}
+.animation-placeholder {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    background-color: #2b2c4a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ffcc00;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.animation-placeholder video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #ffcc00;
+    background-color: #000;
+}

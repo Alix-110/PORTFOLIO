@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kepler's Laws Simulation: Equal Areas in Equal Times</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Kepler's Laws Simulation: Equal Areas in Equal Times</h1>
+    </header>
+
+    <main>
+        <section id="purpose">
+            <h2>Purpose of the Simulation</h2>
+            <p>
+                This simulation demonstrates <strong>Kepler's Second Law</strong>: 
+                a line connecting a planet to its star sweeps equal areas in equal times.
+                The orbit is elliptical with the star at one focus. The orange shaded area 
+                represents the area swept over time, visually confirming the law.
+            </p>
+        </section>
+
+        <section id="background">
+            <h2>Scientific Background</h2>
+            <p>
+                Kepler's laws describe planetary motion:
+                <ul>
+                    <li>1st Law: Planets move in ellipses with the Sun at one focus.</li>
+                    <li>2nd Law: The line joining a planet and the Sun sweeps equal areas in equal time intervals.</li>
+                    <li>3rd Law: The square of the period is proportional to the cube of the semi-major axis.</li>
+                </ul>
+                This simulation focuses on the second law using the formula for the area swept:
+                <br>
+                <em>dA/dt = constant</em>, where <em>A</em> is the area swept.
+            </p>
+        </section>
+
+        <section id="methodology">
+            <h2>Methodology</h2>
+            <p>
+                We approximate the orbit as a parametric ellipse: <br>
+                <em>x = a cos(θ), y = b sin(θ)</em> <br>
+                The focus (star) is at <em>(-√(a²-b²), 0)</em>. <br>
+                Using Python libraries:
+                <ul>
+                    <li><strong>numpy</strong> for numerical arrays and parametric calculations.</li>
+                    <li><strong>matplotlib</strong> for plotting and animation.</li>
+                </ul>
+                At each time step, we:
+                <ol>
+                    <li>Calculate planet position.</li>
+                    <li>Draw a polygon from focus to planet path to visualize swept area.</li>
+                    <li>Animate the planet and area to show equal areas in equal times.</li>
+                </ol>
+            </p>
+        </section>
+
+        <section id="pseudocode">
+            <h2>Pseudocode</h2>
+            <pre><code>
+Initialize constants (G, M, a, b, T)
+Compute ellipse parameters
+Calculate focus coordinates (star position)
+Generate time array
+Compute parametric positions (x, y) for planet
+Setup matplotlib figure and axes
+Draw orbit ellipse and star
+Create polygon for swept area
+Define animation function:
+    - Update planet position
+    - Update swept area polygon
+Run animation using FuncAnimation
+Display or save animation
+            </code></pre>
+        </section>
+
+        <section id="python-code">
+            <h2>Python Simulation Code</h2>
+            <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from matplotlib.patches import Polygon
+
+G = 1.0
+M = 1.0
+a = 5.0
+b = 3.0
+T = 20.0
+num_points = 500
+
+t = np.linspace(0, T, num_points)
+theta = 2 * np.pi * t / T
+x = a * np.cos(theta)
+y = b * np.sin(theta)
+focus_x = -np.sqrt(a**2 - b**2)
+focus_y = 0
+
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.set_aspect('equal')
+ax.set_xlim(-a*1.5, a*1.5)
+ax.set_ylim(-a*1.5, a*1.5)
+ax.set_title("Kepler's Second Law: Equal Areas in Equal Times")
+orbit_line, = ax.plot(x, y, color='gray', linestyle='--', label='Orbit')
+ax.plot(focus_x, focus_y, 'yo', markersize=12, label='Star (Focus)')
+planet_marker, = ax.plot([], [], 'bo', markersize=8, label='Planet')
+swept_area = Polygon([[focus_x, focus_y], [x[0], y[0]]], closed=True, color='orange', alpha=0.3)
+ax.add_patch(swept_area)
+
+def animate(i):
+    planet_marker.set_data([x[i]], [y[i]])
+    swept_area.set_xy(np.vstack([[focus_x, focus_y], np.column_stack((x[:i+1], y[:i+1]))]))
+    return planet_marker, swept_area
+
+ani = FuncAnimation(fig, animate, frames=num_points, interval=40, blit=True)
+plt.legend()
+plt.show()
+
+            </code></pre>
+        </section>
+
+        <section id="explanation">
+            <h2>Code Explanation</h2>
+            <p>
+                <strong>Constants and Parameters:</strong> Define star mass, orbit size, etc.<br>
+                <strong>Ellipse Parametrization:</strong> x = a cos(θ), y = b sin(θ).<br>
+                <strong>Animation:</strong> Updates planet position and the swept area polygon frame by frame.<br>
+                <strong>Visualization:</strong> Planet as a blue dot, star as yellow dot, area as semi-transparent orange polygon.
+            </p>
+        </section>
+
+        <section id="expected-output">
+            <h2>Expected Output</h2>
+            <p>
+                - Blue dot: Planet orbiting elliptical path.<br>
+                - Yellow dot: Star at focus.<br>
+                - Orange polygon: Area swept by the planet line; equal areas in equal time intervals.<br>
+                - Animation should show dynamic movement and area growth over orbit.
+            </p>
+            <p>
+            
+            </p>
+            <div class="animation-placeholder">
+                <video src="1130(1).mp4" controls></video>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
