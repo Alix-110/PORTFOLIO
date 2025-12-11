@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precession of Mercury's Perihelion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Precession of Mercury's Perihelion Simulation</h1>
+</header>
+
+<main>
+    <section id="purpose">
+        <h2>Purpose of the Simulation</h2>
+        <p>
+            This simulation demonstrates the slow rotation of Mercury's orbit around the Sun (perihelion precession)
+            due to a small relativistic correction. Successive orbits gradually rotate, illustrating the relativistic effect.
+        </p>
+    </section>
+
+    <section id="background">
+        <h2>Scientific Background</h2>
+        <p>
+            Mercury’s orbit is an ellipse around the Sun. Newtonian mechanics predicts a fixed ellipse,
+            but General Relativity introduces a small additional precession, causing the perihelion (closest point to the Sun)
+            to slowly rotate. This effect was historically significant in confirming Einstein’s theory.
+        </p>
+    </section>
+
+    <section id="methodology">
+        <h2>Methodology</h2>
+        <p>
+            <ol>
+                <li>Set Mercury-like initial conditions (a=0.39 AU, e=0.205).</li>
+                <li>Initialize position at perihelion and velocity perpendicular to radius.</li>
+                <li>Compute Newtonian acceleration with small relativistic correction.</li>
+                <li>Integrate motion using simple Euler method.</li>
+                <li>Store positions to plot successive orbits.</li>
+                <li>Animate the orbit using Matplotlib with dark space background.</li>
+            </ol>
+        </p>
+    </section>
+
+    <section id="pseudocode">
+        <h2>Pseudocode</h2>
+        <pre><code>
+Initialize Sun mass and Mercury orbital parameters
+Set initial position at perihelion
+Set initial velocity perpendicular to radius
+For each time step:
+    Compute acceleration (Newtonian + small relativistic correction)
+    Update velocity and position
+    Store current position
+Plot Sun at center
+Animate Mercury's orbit over time to show precession
+        </code></pre>
+    </section>
+
+    <section id="python-code">
+        <h2>Python Simulation Code</h2>
+        <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+
+G = 1.0
+M_sun = 1.0
+dt = 0.001
+num_steps = 6000
+
+# Semi-major axis and eccentricity of Mercury-like orbit
+a = 0.39  # AU
+e = 0.205
+rel_corr = 1e-5  # small relativistic correction
+
+# Initial position at perihelion
+r = np.array([a*(1 - e), 0.0])
+# Initial velocity perpendicular to r for ellipse
+v = np.array([0.0, np.sqrt(G*M_sun*(1+e)/(a*(1-e)))])
+
+# Store orbit positions
+positions = [r.copy()]
+
+
+def acceleration(pos):
+    r_vec = pos
+    r_mag = np.linalg.norm(r_vec)
+    # Relativistic correction term (simplified)
+    correction = 1 + rel_corr / r_mag**2
+    a_vec = -G*M_sun * r_vec / r_mag**3 * correction
+    return a_vec
+
+
+fig, ax = plt.subplots(figsize=(8,8))
+ax.set_facecolor('black')
+ax.set_xlim(-0.5, 0.5)
+ax.set_ylim(-0.5, 0.5)
+ax.set_aspect('equal')
+ax.set_title("Precession of Mercury's Perihelion", color='white')
+
+# Sun
+sun_dot, = ax.plot(0, 0, 'yo', markersize=12, label='Sun')
+
+# Orbit line
+orbit_line, = ax.plot([], [], 'c-', lw=1.5, label='Orbit')
+
+
+def animate(i):
+    global r, v, positions
+    a_vec = acceleration(r)
+    v += a_vec * dt
+    r += v * dt
+    positions.append(r.copy())
+
+    pos_arr = np.array(positions)
+    orbit_line.set_data(pos_arr[:,0], pos_arr[:,1])
+    return orbit_line,
+
+ani = FuncAnimation(fig, animate, frames=num_steps, interval=20, blit=True)
+ax.legend(facecolor='black', framealpha=0.5, edgecolor='white', labelcolor='white')
+plt.show()
+
+        </code></pre>
+    </section>
+
+    <section id="explanation">
+        <h2>Code Explanation</h2>
+        <p>
+            The code simulates Mercury’s orbit with a small relativistic correction. The Sun is fixed at the origin.
+            Acceleration includes Newtonian gravity and a 1/r^2 relativistic correction. Euler integration updates
+            velocity and position. Successive orbits accumulate precession, visualized via Matplotlib animation.
+        </p>
+    </section>
+
+    <section id="expected-output">
+        <h2>Expected Output</h2>
+        <p>
+            The animation shows Mercury orbiting the Sun in an ellipse. Over time, the ellipse slowly rotates, demonstrating
+            the precession of the perihelion. The Sun is yellow, the orbit cyan, all on a dark space-themed background.
+        </p>
+        <div class="animation-placeholder">
+            <video src="Video.mp4" controls></video>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
