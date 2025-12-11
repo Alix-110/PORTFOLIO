@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gravitational Lensing - Einstein Ring</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Gravitational Lensing</h1>
+      <p class="lead">Strong lensing: Einstein ring and multiple images of a background galaxy</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="purpose">
+      <h2>Purpose</h2>
+      <p>
+        Demonstrate strong gravitational lensing: the bending of light around a massive foreground object,
+        producing multiple images and Einstein rings of a background galaxy.
+      </p>
+    </section>
+
+    <section id="background">
+      <h2>Background</h2>
+      <p>
+        According to General Relativity, a mass curves spacetime, bending light rays from background objects.
+        For perfect alignment, a circular Einstein ring forms. Off-center sources produce multiple images.
+      </p>
+    </section>
+
+    <section id="methodology">
+      <h2>Methodology</h2>
+      <ol>
+        <li>Create 2D grid representing source plane.</li>
+        <li>Define a Gaussian background galaxy.</li>
+        <li>Calculate deflection angles from a point mass lens.</li>
+        <li>Compute lensed coordinates: X_lensed = X - alpha_x, Y_lensed = Y - alpha_y</li>
+        <li>Map background intensity to lensed coordinates and plot.</li>
+      </ol>
+    </section>
+
+    <section id="pseudocode">
+      <h2>Pseudocode</h2>
+      <pre><code>
+Define 2D grid X, Y
+Define background galaxy intensity
+Compute deflection angles due to lens mass
+Map grid points to lensed positions
+Compute intensity at lensed positions
+Display image with imshow
+      </code></pre>
+    </section>
+
+    <section id="python-code">
+      <h2>Python Simulation Code</h2>
+      <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.style.use("dark_background")
+
+
+nx, ny = 500, 500
+x = np.linspace(-2, 2, nx)
+y = np.linspace(-2, 2, ny)
+X, Y = np.meshgrid(x, y)
+
+def galaxy(X, Y):
+    """Gaussian galaxy at center of source plane"""
+    return np.exp(-((X-0.5)**2 + (Y-0.2)**2)/0.05)
+
+source = galaxy(X, Y)
+
+
+M = 1.0  # lens mass (arbitrary units)
+eps = 1e-4  # softening to avoid singularity at center
+
+# Compute deflection angles for point mass lens
+deflection_x = M * (X) / (X**2 + Y**2 + eps)
+deflection_y = M * (Y) / (X**2 + Y**2 + eps)
+
+
+X_lensed = X - deflection_x
+Y_lensed = Y - deflection_y
+lensed_image = galaxy(X_lensed, Y_lensed)
+
+
+fig, ax = plt.subplots(figsize=(6,6))
+im = ax.imshow(lensed_image, extent=(-2,2,-2,2), origin='lower', cmap='inferno')
+ax.set_title("Gravitational Lensing - Einstein Ring")
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+plt.colorbar(im, ax=ax, label="Intensity")
+plt.show()
+
+      </code></pre>
+    </section>
+
+    <section id="explanation">
+      <h2>Explanation</h2>
+      <p>
+        - Background galaxy is a Gaussian light source.<br>
+        - Foreground mass deflects light rays inversely proportional to distance squared.<br>
+        - Lensed image shows multiple bright spots; perfect alignment creates a circular Einstein ring.<br>
+        - The code maps source intensity to new coordinates after deflection.
+      </p>
+    </section>
+
+    <section id="expected-output">
+      <h2>Expected Output</h2>
+      <p>
+        Image showing Einstein ring or arcs depending on source position. Brighter intensity regions show lensed images of the background galaxy.
+      </p>
+      <div class="animation-placeholder">
+        <p><img src="2.png" width="500px"></p>
+        <video src="1.mp4" width="500px" autoplay loop></video>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
