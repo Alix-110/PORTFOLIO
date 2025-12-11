@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Data Sonification</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-satellite"></i> Space Data Sonification</h1>
+            <p class="subtitle">Converting space-related data into sound for scientific exploration and education</p>
+        </header>
+
+        <main>
+            <section class="intro">
+                <div class="card">
+                    <h2><i class="fas fa-volume-up"></i> What is Data Sonification?</h2>
+                    <p>Sonification is the process of converting data into sound. Just as visualization represents data visually, sonification represents data acoustically. This technique allows scientists and researchers to perceive patterns in data through hearing, which can reveal insights that might be missed in visual representations.</p>
+                    <p>In this project, we convert space-related CSV data (like planetary temperatures, star brightness, or radiation levels) into an audio representation where different data values correspond to different musical notes and sound characteristics.</p>
+                </div>
+            </section>
+
+            <section class="audio-section">
+                <div class="card">
+                    <h2><i class="fas fa-music"></i> Listen to Space Data</h2>
+                    <p>This audio file was generated from space-related data using the Python script below. Each data point from the CSV file has been converted to a musical tone with specific pitch, duration, volume, and stereo positioning.</p>
+                    
+                    <div class="audio-player">
+                        <div class="audio-controls">
+                            <button id="playBtn" class="btn-control"><i class="fas fa-play"></i> Play</button>
+                            <button id="pauseBtn" class="btn-control"><i class="fas fa-pause"></i> Pause</button>
+                            <button id="stopBtn" class="btn-control"><i class="fas fa-stop"></i> Stop</button>
+                            <button id="replayBtn" class="btn-control"><i class="fas fa-redo"></i> Replay</button>
+                        </div>
+                        <div class="volume-control">
+                            <span>Volume:</span>
+                            <input type="range" id="volumeSlider" min="0" max="100" value="70">
+                            <span id="volumeValue">70%</span>
+                        </div>
+                        <audio id="spaceAudio" controls>
+                            <source src="space_sonification.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-info">
+                            <p><i class="fas fa-info-circle"></i> This audio represents 50 data points from a simulated space dataset. Higher values create higher pitches, longer durations, and louder volumes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="process">
+                <div class="card">
+                    <h2><i class="fas fa-code"></i> The Sonification Process</h2>
+                    <p>The Python script follows these steps to convert CSV data into sound:</p>
+                    
+                    <div class="process-steps">
+                        <div class="step" id="step1">
+                            <div class="step-header">
+                                <span class="step-number">1</span>
+                                <h3>Read CSV Data</h3>
+                                <button class="toggle-code"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                            <p>The script reads space-related numerical data from a CSV file using pandas.</p>
+                            <div class="code-container">
+                                <pre><code class="python">import pandas as pd
+
+# Read the CSV file
+df = pd.read_csv('space_data.csv')
+
+# Display information about the data
+print(f"Dataset shape: {df.shape}")
+print(f"Columns: {list(df.columns)}")</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="step" id="step2">
+                            <div class="step-header">
+                                <span class="step-number">2</span>
+                                <h3>Normalize Data</h3>
+                                <button class="toggle-code"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                            <p>All numerical values are scaled to a 0-1 range for consistent mapping to sound parameters.</p>
+                            <div class="code-container">
+                                <pre><code class="python"># Normalize each numerical column to 0-1 range
+for column in df.select_dtypes(include=[np.number]).columns:
+    min_val = df[column].min()
+    max_val = df[column].max()
+    
+    if max_val > min_val:
+        df[column] = (df[column] - min_val) / (max_val - min_val)
+    else:
+        df[column] = 0.5</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="step" id="step3">
+                            <div class="step-header">
+                                <span class="step-number">3</span>
+                                <h3>Map to Sound Parameters</h3>
+                                <button class="toggle-code"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                            <p>Normalized values are mapped to musical pitches, durations, volumes, and stereo panning positions.</p>
+                            <div class="code-container">
+                                <pre><code class="python"># Map each data point to sound parameters
+for value in data_values:
+    # Pitch: Map to pentatonic scale (pleasant sound)
+    pitch_scale = [0, 2, 4, 7, 9]  # Pentatonic intervals
+    pitch_index = int(value * (len(pitch_scale) - 1))
+    pitch_semitones = pitch_scale[pitch_index]
+    
+    # Calculate frequency from semitones
+    pitch = 261.63 * (2 ** (pitch_semitones / 12))
+    
+    # Duration: 0.1 to 0.4 seconds
+    duration = 0.1 + (value * 0.3)
+    
+    # Volume: 0.3 to 1.0
+    volume = 0.3 + (value * 0.7)</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="step" id="step4">
+                            <div class="step-header">
+                                <span class="step-number">4</span>
+                                <h3>Generate Audio Waveform</h3>
+                                <button class="toggle-code"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                            <p>A waveform is created by combining sine waves for each data point with their specific parameters.</p>
+                            <div class="code-container">
+                                <pre><code class="python"># Generate sine wave for each tone
+t = np.linspace(0, duration, num_samples)
+tone = np.sin(2 * np.pi * pitch * t)
+
+# Apply volume envelope (fade in/out)
+envelope = np.ones(num_samples)
+fade_samples = min(100, num_samples // 10)
+envelope[:fade_samples] = np.linspace(0, 1, fade_samples)
+envelope[-fade_samples:] = np.linspace(1, 0, fade_samples)
+
+tone = tone * envelope * volume</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="step" id="step5">
+                            <div class="step-header">
+                                <span class="step-number">5</span>
+                                <h3>Save Audio File</h3>
+                                <button class="toggle-code"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                            <p>The generated audio data is saved as a WAV file that can be played on any audio device.</p>
+                            <div class="code-container">
+                                <pre><code class="python"># Convert float audio to int16 for WAV format
+audio_int16 = (audio_data * 32767).astype(np.int16)
+
+# Write to WAV file
+wavfile.write('space_sonification.wav', 
+              sample_rate, 
+              audio_int16)</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mapping-visualization">
+                <div class="card">
+                    <h2><i class="fas fa-chart-line"></i> Data-to-Sound Mapping Visualization</h2>
+                    <p>See how different data values map to different sound characteristics:</p>
+                    
+                    <div class="visualization-container">
+                        <div class="mapping-controls">
+                            <div class="slider-container">
+                                <label for="dataValueSlider">Data Value (Normalized 0-1):</label>
+                                <input type="range" id="dataValueSlider" min="0" max="100" value="50">
+                                <span id="dataValueDisplay">0.50</span>
+                            </div>
+                            <button id="playToneBtn" class="btn"><i class="fas fa-play-circle"></i> Play This Tone</button>
+                        </div>
+                        
+                        <div class="mapping-display">
+                            <div class="parameter" id="pitchDisplay">
+                                <h4>Pitch</h4>
+                                <div class="value-bar">
+                                    <div class="bar-fill" id="pitchBar"></div>
+                                </div>
+                                <p class="value-text" id="pitchText">523.25 Hz (C5)</p>
+                            </div>
+                            
+                            <div class="parameter" id="durationDisplay">
+                                <h4>Duration</h4>
+                                <div class="value-bar">
+                                    <div class="bar-fill" id="durationBar"></div>
+                                </div>
+                                <p class="value-text" id="durationText">0.25 seconds</p>
+                            </div>
+                            
+                            <div class="parameter" id="volumeDisplay">
+                                <h4>Volume</h4>
+                                <div class="value-bar">
+                                    <div class="bar-fill" id="volumeBar"></div>
+                                </div>
+                                <p class="value-text" id="volumeText">0.65 (65%)</p>
+                            </div>
+                            
+                            <div class="parameter" id="panDisplay">
+                                <h4>Stereo Pan</h4>
+                                <div class="value-bar">
+                                    <div class="bar-fill" id="panBar"></div>
+                                </div>
+                                <p class="value-text" id="panText">Center</p>
+                            </div>
+                        </div>
+                        
+                        <div class="explanation">
+                            <h4><i class="fas fa-lightbulb"></i> How to Interpret</h4>
+                            <p>Move the slider to see how different data values map to sound parameters:</p>
+                            <ul>
+                                <li><strong>Higher values</strong> produce <strong>higher pitches</strong>, <strong>longer durations</strong>, and <strong>louder volumes</strong>.</li>
+                                <li><strong>Even-indexed data points</strong> are panned to the <strong>left channel</strong>.</li>
+                                <li><strong>Odd-indexed data points</strong> are panned to the <strong>right channel</strong>.</li>
+                                <li>Click "Play This Tone" to hear how a specific data value sounds.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="applications">
+                <div class="card">
+                    <h2><i class="fas fa-rocket"></i> Applications in Space Science</h2>
+                    <p>Data sonification has practical applications in space science and astronomy:</p>
+                    
+                    <div class="applications-grid">
+                        <div class="application">
+                            <div class="app-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h3>Solar Flare Monitoring</h3>
+                            <p>Convert solar radiation levels into sound patterns to help identify solar flare events through auditory cues.</p>
+                        </div>
+                        
+                        <div class="application">
+                            <div class="app-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3>Exoplanet Detection</h3>
+                            <p>Sonify light curves from distant stars to detect the subtle dimming caused by orbiting exoplanets.</p>
+                        </div>
+                        
+                        <div class="application">
+                            <div class="app-icon">
+                                <i class="fas fa-satellite-dish"></i>
+                            </div>
+                            <h3>Radio Astronomy</h3>
+                            <p>Convert radio telescope data into sound to help identify patterns in cosmic microwave background radiation.</p>
+                        </div>
+                        
+                        <div class="application">
+                            <div class="app-icon">
+                                <i class="fas fa-user-astronaut"></i>
+                            </div>
+                            <h3>Accessibility</h3>
+                            <p>Make space data accessible to visually impaired scientists and enthusiasts through auditory representations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="try-it">
+                <div class="card">
+                    <h2><i class="fas fa-flask"></i> Try It Yourself</h2>
+                    <p>Want to create your own space data sonification? Here's how:</p>
+                    
+                    <ol class="instructions">
+                        <li>Download the <a href="#" id="downloadScript">Python script</a> and save it as <code>sonification.py</code></li>
+                        <li>Prepare a CSV file with numerical space data (or use the sample generated by the script)</li>
+                        <li>Run the script: <code>python sonification.py</code></li>
+                        <li>Listen to the generated <code>space_sonification.wav</code> file</li>
+                        <li>Modify the script to experiment with different sound mappings</li>
+                    </ol>
+                    
+                    <div class="resources">
+                        <h4><i class="fas fa-book"></i> Learning Resources</h4>
+                        <ul>
+                            <li><a href="https://sonification.de/handbook/" target="_blank">The Sonification Handbook</a> - Comprehensive guide to data sonification</li>
+                            <li><a href="https://astronomy.com/news/2020/10/listening-to-the-universe-how-sonification-makes-astronomy-accessible" target="_blank">Listening to the Universe</a> - Astronomy.com article on space data sonification</li>
+                            <li><a href="https://www.nasa.gov/feature/goddard/2022/what-does-a-black-hole-sound-like/" target="_blank">NASA Black Hole Sonification</a> - How NASA sonified a black hole</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>Space Data Sonification Project &copy; 2023 | Educational Web Project</p>
+                <p>This project demonstrates how to convert numerical CSV data into sound using Python</p>
+                <div class="footer-links">
+                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#"><i class="fas fa-code"></i> Python Script</a>
+                    <a href="#"><i class="fas fa-file-csv"></i> Sample Data</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio context for interactive tone generation -->
+    <audio id="tonePlayer"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
