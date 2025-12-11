@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roche Lobe Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Roche Lobe / Tidal Forces Simulation</h1>
+    </header>
+
+    <main>
+        <section id="purpose">
+            <h2>Purpose of the Simulation</h2>
+            <p>
+                This simulation visualizes the gravitational potential of a binary star system, 
+                highlighting the Roche lobes where matter can flow between stars. 
+                It helps understand tidal forces in interacting binaries.
+            </p>
+        </section>
+
+        <section id="background">
+            <h2>Scientific Background</h2>
+            <p>
+                In a binary system, each star exerts gravitational force on matter. 
+                In a rotating reference frame, centrifugal forces also contribute. 
+                The combined potential:
+                <br>
+                <em>Φ = -G*M1/r1 - G*M2/r2 - 0.5*ω²(x²+y²)</em>
+                <br>
+                Equipotential surfaces define Roche lobes: regions dominated by each star's gravity.
+            </p>
+        </section>
+
+        <section id="methodology">
+            <h2>Methodology</h2>
+            <p>
+                <ol>
+                    <li>Set mass and separation of the two stars.</li>
+                    <li>Create a 2D grid for x and y coordinates.</li>
+                    <li>Compute distance from each star to every grid point.</li>
+                    <li>Calculate total gravitational potential plus centrifugal potential.</li>
+                    <li>Plot contour map with equipotential surfaces showing Roche lobes.</li>
+                </ol>
+            </p>
+        </section>
+
+        <section id="pseudocode">
+            <h2>Pseudocode</h2>
+            <pre><code>
+Define masses and separation of binary stars
+Compute angular velocity omega
+Create 2D grid (X, Y)
+Calculate distance to each star (r1, r2)
+Compute gravitational potential + centrifugal potential
+Plot contour lines of potential
+Mark star positions on the plot
+            </code></pre>
+        </section>
+
+        <section id="python-code">
+            <h2>Python Simulation Code</h2>
+            <pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+
+G = 1.0
+M1 = 1.0  # Mass of star 1
+M2 = 0.5  # Mass of star 2
+d = 2.0   # Separation distance
+omega = np.sqrt(G * (M1 + M2) / d**3)  # Angular velocity of binary
+
+# Grid for x, y
+x = np.linspace(-2.5, 2.5, 400)
+y = np.linspace(-2.5, 2.5, 400)
+X, Y = np.meshgrid(x, y)
+
+# Positions of stars
+x1, y1 = -M2 * d / (M1 + M2), 0
+x2, y2 = M1 * d / (M1 + M2), 0
+
+# Gravitational potential + centrifugal term
+def potential(X, Y):
+    r1 = np.sqrt((X - x1)**2 + (Y - y1)**2)
+    r2 = np.sqrt((X - x2)**2 + (Y - y2)**2)
+    Phi = -G*M1/r1 - G*M2/r2 - 0.5*omega**2*((X)**2 + (Y)**2)
+    return Phi
+
+Phi = potential(X, Y)
+
+# Plot contour map
+plt.figure(figsize=(8,6))
+contours = plt.contour(X, Y, Phi, levels=50, cmap='plasma')
+plt.clabel(contours, inline=True, fontsize=8)
+plt.plot(x1, y1, 'yo', label='Star 1')
+plt.plot(x2, y2, 'ro', label='Star 2')
+plt.title("Roche Lobes / Gravitational Potential Contour")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.legend()
+plt.gca().set_aspect('equal')
+plt.show()
+
+            </code></pre>
+        </section>
+
+        <section id="explanation">
+            <h2>Code Explanation</h2>
+            <p>
+                Each grid point calculates distance to both stars. Potential combines gravitational 
+                attraction and centrifugal effect. Contour levels represent equipotential surfaces; 
+                the narrow “neck” between stars defines the L1 point, showing where matter can transfer.
+            </p>
+        </section>
+
+        <section id="expected-output">
+            <h2>Expected Output</h2>
+            <p>
+                A 2D contour plot showing the Roche lobes around each star. 
+                Yellow and red points indicate the two stars, and equipotential contours show tidal regions.
+            </p>
+            <div class="animation-placeholder">
+                <video src="Tidal forces.mp4" controls></video>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
