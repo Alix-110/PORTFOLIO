@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planet Transit Light Curve Simulation</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Planet Transit Light Curve Simulation</h1>
+</header>
+
+<main>
+<section id="purpose">
+<h2>Purpose of the Simulation</h2>
+<p>This simulation demonstrates how a planet transiting a star causes a dip in the observed brightness, creating a light curve. Different planet sizes and impact parameters can be modeled.</p>
+</section>
+
+<section id="background">
+<h2>Scientific Background</h2>
+<p>During a planetary transit, the planet passes in front of the star as seen by an observer, blocking a fraction of light. The resulting brightness dip is used to detect exoplanets and measure their radius, orbital parameters, and more.</p>
+</section>
+
+<section id="methodology">
+<h2>Methodology</h2>
+<ol>
+<li>Set normalized star radius (R_star) and planet radius (R_planet).</li>
+<li>Set impact parameter for vertical transit offset.</li>
+<li>Create a time array representing the transit duration.</li>
+<li>Compute flux drop based on overlap of planet and star disks.</li>
+<li>Plot star and moving planet (top subplot).</li>
+<li>Plot evolving light curve (bottom subplot).</li>
+<li>Animate using Matplotlib.</li>
+</ol>
+</section>
+
+<section id="pseudocode">
+<h2>Pseudocode</h2>
+<pre><code>
+Define star and planet radii, impact parameter
+Create time array
+For each time step:
+    Compute distance of planet from star center
+    If planet overlaps star:
+        Reduce brightness according to planet area
+Plot star and planet
+Plot brightness vs time
+Animate planet motion and light curve simultaneously
+</code></pre>
+</section>
+
+<section id="python-code">
+<h2>Python Simulation Code</h2>
+<pre><code>
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+
+R_star = 1.0           # normalized radius of star
+R_planet = 0.1         # radius of planet (can change)
+impact_param = 0.2     # vertical offset of transit (0 = center)
+
+# Time array for transit
+t = np.linspace(-1.5, 1.5, 500)  # normalized units
+
+# Star brightness (normalized to 1.0)
+brightness = np.ones_like(t)
+
+# Function to compute flux drop
+def flux_drop(x):
+    # distance from planet center to star center
+    d = np.sqrt(x**2 + impact_param**2)
+    # simple approximation: total eclipse if planet fully in front
+    drop = np.zeros_like(x)
+    inside = d < R_star + R_planet
+    drop[inside] = (R_planet**2 / R_star**2) * (1 - (d[inside] / (R_star + R_planet)))
+    return drop
+
+# Precompute brightness during transit
+brightness -= flux_drop(t)
+
+
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8,8), gridspec_kw={'height_ratios':[1,1]})
+fig.suptitle("Planet Transit Light Curve Simulation", fontsize=16, fontweight='bold')
+
+# Star plot (top)
+star_circle = plt.Circle((0,0), R_star, color='yellow', ec='orange')
+planet_dot, = ax1.plot([], [], 'o', color='blue', markersize=20)
+ax1.add_patch(star_circle)
+ax1.set_xlim(-1.5, 1.5)
+ax1.set_ylim(-1.2, 1.2)
+ax1.set_aspect('equal')
+ax1.set_title("Star and Planet Transit")
+ax1.axis('off')
+
+# Light curve plot (bottom)
+ax2.set_xlim(t[0], t[-1])
+ax2.set_ylim(0.85, 1.01)
+ax2.set_xlabel("Time (normalized)")
+ax2.set_ylabel("Normalized Brightness")
+ax2.set_title("Observed Stellar Brightness")
+line_curve, = ax2.plot([], [], color='red', lw=2)
+
+# Animation function
+def animate(i):
+    x_pos = t[i]
+    planet_dot.set_data([x_pos], [impact_param])  # wrap in lists!
+    line_curve.set_data(t[:i+1], brightness[:i+1])
+    return planet_dot, line_curve
+
+ani = FuncAnimation(fig, animate, frames=len(t), interval=30, blit=True)
+plt.tight_layout()
+plt.show()
+
+</code></pre>
+</section>
+
+<section id="explanation">
+<h2>Code Explanation</h2>
+<p>The code models a simplified transit. The top subplot shows the planet moving across the star. The bottom subplot shows the brightness decreasing as the planet blocks starlight. Flux drop is proportional to the overlapping area. Animation updates both the planet position and light curve dynamically.</p>
+</section>
+
+<section id="expected-output">
+<h2>Expected Output</h2>
+<p>
+The animation shows:
+<ul>
+<li>Yellow star in the center.</li>
+<li>Blue planet moving across the star.</li>
+<li>Red light curve below showing a dip during transit.</li>
+</ul>
+</p>
+<div class="animation-placeholder">
+<video src="Video.mp4" controls></video>
+</div>
+</section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
