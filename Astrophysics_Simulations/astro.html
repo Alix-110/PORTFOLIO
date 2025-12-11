@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrophysics Simulations | Cosmic Laboratory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="astro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Space Background -->
+    <div class="space-bg">
+        <div class="stars" id="stars"></div>
+        <div class="planet"></div>
+        <div class="planet small"></div>
+        <div class="nebula"></div>
+        <div class="comet"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-meteor"></i>
+                </div>
+                <h1 class="logo-text">ASTROPHYSICS SIMULATIONS</h1>
+            </div>
+            <div class="subtitle">
+                <span>Visualizing the Universe Through Computational Astrophysics</span>
+            </div>
+            <div class="back-home">
+                <a href="../explore.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Portfolio</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Introduction Section -->
+            <section class="intro-section">
+                <div class="intro-card">
+                    <h2>Cosmic Laboratory</h2>
+                    <p>Twenty-one astrophysical simulations where theoretical physics meets computational visualization. Each project represents a unique investigation into the fundamental laws governing our universe, from stellar evolution to gravitational dynamics.</p>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-value">21</div>
+                            <div class="stat-label">Simulations</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">7</div>
+                            <div class="stat-label">Categories</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">∞</div>
+                            <div class="stat-label">Cosmic Insights</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Simulations Grid -->
+            <section class="projects-section">
+                <h2 class="section-title">Astrophysical Simulations</h2>
+                <p class="section-subtitle">Click on any simulation to explore cosmic phenomena</p>
+                
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be loaded here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Technologies Section -->
+            <section class="tech-section">
+                <h2 class="section-title">Cosmic Technologies</h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
+                        <p>Numerical simulations and data analysis</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>Interactive visualizations and real-time simulations</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Scientific Data</h3>
+                        <p>NASA APIs, astronomical databases, observational data</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Data Visualization</h3>
+                        <p>Matplotlib, Plotly, D3.js for scientific plotting</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Astrophysics Laboratory</h3>
+                    <p>Where Theoretical Physics Meets Computational Science</p>
+                </div>
+                <div class="research-stats">
+                    <div class="research-stat">
+                        <span class="stat-number">21</span>
+                        <span class="stat-label">Simulations</span>
+                    </div>
+                    <div class="research-stat">
+                        <span class="stat-number">95 ~ 97 %</span>
+                        <span class="stat-label">Scientific Accuracy</span>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2025 Astrophysics Simulations. Exploring the universe through computation.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="astro.js"></script>
+</body>
+</html>
