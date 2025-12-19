@@ -35,65 +35,50 @@ const paperData = {
         pdf: "How Gravitational Lensing Helps Astronomers Detect Dark Matter.pdf", // Change this to your PDF path
         year: "2024",
         tags: ["Astrophysics", "Cosmology", "Thermodynamics"],
-        pages: "25",
+        pages: "9",
         description: "An investigation into the thermodynamic properties of black holes, focusing on entropy, Hawking radiation, and information paradox."
     },
     2: {
         title: "Quantum Entanglement in Cosmological Context",
-        pdf: "research/QuantumEntanglementCosmology.pdf", // Change this to your PDF path
-        year: "2024",
+        pdf: "QuantumEntanglementCosmology.pdf", // Change this to your PDF path
+        year: "2025",
         tags: ["Quantum Physics", "Entanglement", "Cosmology"],
-        pages: "32",
+        pages: "14",
         description: "Exploring quantum entanglement phenomena in the early universe and its implications for cosmic inflation and structure formation."
     },
     3: {
         title: "Machine Learning in Astronomical Data Analysis",
-        pdf: "research/MLAstronomy.pdf", // Change this to your PDF path
-        year: "2024",
+        pdf: "MLAstronomy.pdf", // Change this to your PDF path
+        year: "2025",
         tags: ["Computer Science", "AI", "Data Analysis"],
-        pages: "28",
+        pages: "12",
         description: "Application of deep learning algorithms for classification and analysis of astronomical datasets from NASA telescopes."
     },
     4: {
         title: "Dark Matter Distribution in Spiral Galaxies",
-        pdf: "research/DarkMatterDistribution.pdf", // Change this to your PDF path
+        pdf: "DarkMatterDistribution.pdf", // Change this to your PDF path
         year: "2023",
         tags: ["Cosmology", "Dark Matter", "Galaxies"],
-        pages: "35",
+        pages: "11",
         description: "Analysis of rotation curves and dark matter halo profiles in nearby spiral galaxies using observational data."
     },
     5: {
         title: "Statistical Analysis of Exoplanet Discovery Data",
-        pdf: "research/ExoplanetStatistics.pdf", // Change this to your PDF path
-        year: "2023",
+        pdf: "ExoplanetStatistics.pdf", // Change this to your PDF path
+        year: "October 2025",
         tags: ["Data Science", "Statistics", "Exoplanets"],
-        pages: "40",
+        pages: "14",
         description: "Comprehensive statistical analysis of Kepler and TESS exoplanet data to identify patterns and habitable zone probabilities."
     },
     6: {
         title: "Fractal Geometry in Cosmic Structure Formation",
-        pdf: "research/FractalCosmology.pdf", // Change this to your PDF path
-        year: "2023",
+        pdf: "FractalCosmology.pdf", // Change this to your PDF path
+        year: "2024",
         tags: ["Mathematics", "Geometry", "Cosmology"],
-        pages: "30",
+        pages: "15",
         description: "Investigating fractal patterns in galaxy distribution and cosmic web formation using mathematical modeling."
     },
-    7: {
-        title: "Radio Telescope Data Processing Algorithms",
-        pdf: "research/RadioTelescopeAlgorithms.pdf", // Change this to your PDF path
-        year: "2022",
-        tags: ["Observational", "Telescope", "Algorithms"],
-        pages: "38",
-        description: "Development of signal processing algorithms for radio astronomy data from SKA precursor telescopes."
-    },
-    8: {
-        title: "Magnetohydrodynamics of Solar Flares",
-        pdf: "research/SolarFlareMHD.pdf", // Change this to your PDF path
-        year: "2022",
-        tags: ["Plasma Physics", "MHD", "Solar Physics"],
-        pages: "45",
-        description: "Numerical simulation and analysis of magnetic reconnection processes in solar corona leading to flare events."
-    }
+   
 };
 
 // Create loading overlay
