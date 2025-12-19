@@ -77,7 +77,7 @@ const sectionData = {
             { value: '12+', label: 'Research Papers' },
             { value: '5', label: 'Scientific Fields' }
         ],
-        pageUrl: 'research/index.html',
+        pageUrl: 'Research/research.html',
         thumbnails: [
             { title: 'Astrophysics Paper', icon: 'fa-star', page: 'research/astrophysics-paper.html' },
             { title: 'Quantum Physics', icon: 'fa-atom', page: 'research/quantum-physics.html' },
@@ -373,3 +373,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
