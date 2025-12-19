@@ -72,9 +72,9 @@ const sectionData = {
     },
     'research': {
         title: 'Research',
-        description: '12+ scientific research papers and academic investigations across multiple fields including astrophysics, physics, and computer science. Each paper represents rigorous scientific inquiry and analysis.',
+        description: '6+ scientific research papers and academic investigations across multiple fields including astrophysics, physics, and computer science. Each paper represents rigorous scientific inquiry and analysis.',
         stats: [
-            { value: '12+', label: 'Research Papers' },
+            { value: '8', label: 'Research Papers' },
             { value: '5', label: 'Scientific Fields' }
         ],
         pageUrl: 'Research/research.html',
@@ -373,4 +373,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 
