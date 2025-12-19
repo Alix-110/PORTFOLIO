@@ -389,6 +389,50 @@ body {
     transform: translateX(10px);
 }
 
+/* Card Thumbnail Styles */
+.card-thumbnail {
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 106, 0, 0.2);
+    background: rgba(10, 14, 23, 0.5);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nav-card:hover .card-thumbnail {
+    border-color: rgba(255, 106, 0, 0.4);
+    transform: scale(1.02);
+}
+
+.nav-card.main-card .card-thumbnail {
+    min-height: 150px;
+}
+
+.thumbnail-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: #ffaa00;
+    text-align: center;
+}
+
+.thumbnail-placeholder i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.thumbnail-placeholder span {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
 /* Stats Section */
 .stats-section {
     margin-bottom: 4rem;
@@ -611,6 +655,71 @@ body {
     margin-bottom: 2rem;
 }
 
+/* Projects Container in Modal */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin: 2rem 0;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background: rgba(255, 106, 0, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 106, 0, 0.1);
+}
+
+.project-thumbnail {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: rgba(255, 106, 0, 0.1);
+    border: 1px solid rgba(255, 106, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-thumbnail:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 106, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(255, 106, 0, 0.2);
+}
+
+.project-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-thumbnail .thumbnail-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 14, 23, 0.9);
+    color: white;
+    padding: 5px;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.project-thumbnail.empty {
+    background: rgba(255, 106, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffaa00;
+}
+
+.project-thumbnail.empty i {
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
 .modal-stats {
     display: flex;
     gap: 2rem;
@@ -770,160 +879,7 @@ body {
     }
 }
 
-/* Add to existing styles-navigation.css */
-
-/* Card Thumbnail Styles */
-.card-thumbnail {
-    margin: 1.5rem 0;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 106, 0, 0.2);
-    background: rgba(10, 14, 23, 0.5);
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.nav-card:hover .card-thumbnail {
-    border-color: rgba(255, 106, 0, 0.4);
-    transform: scale(1.02);
-}
-
-.thumbnail-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    color: #ffaa00;
-    text-align: center;
-}
-
-.thumbnail-placeholder i {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-.thumbnail-placeholder span {
-    font-size: 0.9rem;
-    color: #aaa;
-}
-
-/* Projects Container in Modal */
-.projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 15px;
-    margin: 2rem 0;
-    max-height: 300px;
-    overflow-y: auto;
-    padding: 10px;
-    background: rgba(255, 106, 0, 0.05);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 106, 0, 0.1);
-}
-
-.project-thumbnail {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 1;
-    background: rgba(255, 106, 0, 0.1);
-    border: 1px solid rgba(255, 106, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.project-thumbnail:hover {
-    transform: scale(1.05);
-    border-color: rgba(255, 106, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(255, 106, 0, 0.2);
-}
-
-.project-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.project-thumbnail .thumbnail-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(10, 14, 23, 0.9);
-    color: white;
-    padding: 5px;
-    font-size: 0.7rem;
-    text-align: center;
-}
-
-.project-thumbnail.empty {
-    background: rgba(255, 106, 0, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffaa00;
-}
-
-.project-thumbnail.empty i {
-    font-size: 1.5rem;
-    opacity: 0.5;
-}
-
-/* Certificate Gallery */
-.certificate-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-    margin: 2rem 0;
-}
-
-.certificate-item {
-    background: rgba(255, 106, 0, 0.1);
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    border: 1px solid rgba(255, 106, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.certificate-item:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 106, 0, 0.4);
-    box-shadow: 0 10px 20px rgba(255, 106, 0, 0.1);
-}
-
-.certificate-icon {
-    font-size: 2.5rem;
-    color: #ffaa00;
-    margin-bottom: 10px;
-}
-
-.certificate-title {
-    font-size: 0.9rem;
-    color: #fff;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.certificate-issuer {
-    font-size: 0.8rem;
-    color: #aaa;
-}
-
 /* Add smooth scrolling */
 html {
     scroll-behavior: smooth;
-}
-
-/* Update card stats for main cards */
-.nav-card.main-card .card-thumbnail {
-    min-height: 150px;
 }
