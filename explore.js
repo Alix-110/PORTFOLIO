@@ -31,12 +31,12 @@ function createStars() {
 const sectionData = {
     'academics': {
         title: 'Academics',
-        description: 'Matriculation from St. Mary\'s Academy with 1068/1100 (3.88 GPA) and FSC from PS Fort Road College with 855/1100 (3.11 GPA). My academic journey reflects dedication to learning and excellence.',
+        description: 'Matriculation from St. Mary\'s Academy with 1068/1100 (3.88 GPA) and FSC from APS Fort Road College with 855/1100 (3.11 GPA). My academic journey reflects dedication to learning and excellence.',
         stats: [
             { value: '3.88', label: 'Matric GPA' },
             { value: '3.11', label: 'FSC GPA' }
         ],
-        pageUrl: 'academics/academics.html', // FIXED PATH
+        pageUrl: 'academics/academics.html',
         thumbnails: [
             { title: 'Matriculation', icon: 'fa-school', page: 'academics/matric.html' },
             { title: 'FSC Results', icon: 'fa-university', page: 'academics/fsc.html' },
@@ -56,19 +56,34 @@ const sectionData = {
             { title: 'Cooking', icon: 'fa-utensils', page: 'extracurriculars/cooking/cooking.html' }
         ]
     },
-    'certificates': {
+    'skills': {
         title: 'Skills',
-        description: 'Skills gained through self learning and study throgh online resources..',
+        description: 'Skills gained through self learning and study through online resources.',
         stats: [
             { value: '', label: '' },
             { value: '', label: '' }
         ],
         pageUrl: 'Skills/skills.html',
         thumbnails: [
-            { title: 'Certificate 1', icon: 'fa-award', page: 'certificates/C.html#cert1' },
-            { title: 'Certificate 2', icon: 'fa-certificate', page: 'certificates/C.html#cert2' },
-            { title: 'Certificate 3', icon: 'fa-trophy', page: 'certificates/C.html#cert3' },
-            { title: 'Certificate 4', icon: 'fa-medal', page: 'certificates/C.html#cert4' }
+            { title: 'Programming', icon: 'fa-code', page: 'Skills/programming.html' },
+            { title: 'Design', icon: 'fa-paint-brush', page: 'Skills/design.html' },
+            { title: 'Research', icon: 'fa-search', page: 'Skills/research.html' }
+        ]
+    },
+    'research': {
+        title: 'Research',
+        description: '12+ scientific research papers and academic investigations across multiple fields including astrophysics, physics, and computer science. Each paper represents rigorous scientific inquiry and analysis.',
+        stats: [
+            { value: '12+', label: 'Research Papers' },
+            { value: '5', label: 'Scientific Fields' }
+        ],
+        pageUrl: 'research/index.html',
+        thumbnails: [
+            { title: 'Astrophysics Paper', icon: 'fa-star', page: 'research/astrophysics-paper.html' },
+            { title: 'Quantum Physics', icon: 'fa-atom', page: 'research/quantum-physics.html' },
+            { title: 'Computer Science', icon: 'fa-laptop-code', page: 'research/computer-science.html' },
+            { title: 'Cosmology Study', icon: 'fa-globe', page: 'research/cosmology-study.html' },
+            { title: 'Data Analysis', icon: 'fa-chart-bar', page: 'research/data-analysis.html' }
         ]
     },
     'cosmic-curiosities': {
@@ -76,7 +91,7 @@ const sectionData = {
         description: '8 projects exploring astronomy, cosmic phenomena, and space research. Each project represents a unique investigation into the mysteries of the universe.',
         stats: [
             { value: '8', label: 'Projects' },
-            
+            { value: '4', label: 'Categories' }
         ],
         pageUrl: 'Cosmic_Curiosities/Cosmic.html',
         thumbnails: [
