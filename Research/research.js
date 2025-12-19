@@ -31,8 +31,8 @@ function createStars() {
 // Research paper data with PDF paths
 const paperData = {
     1: {
-        title: "Black Hole Thermodynamics & Entropy",
-        pdf: "research/BlackHoleThermodynamics.pdf", // Change this to your PDF path
+        title: "How Gravitational Lensing Helps Astronomers Detect Dark Matter",
+        pdf: "How Gravitational Lensing Helps Astronomers Detect Dark Matter.pdf", // Change this to your PDF path
         year: "2024",
         tags: ["Astrophysics", "Cosmology", "Thermodynamics"],
         pages: "25",
